@@ -1,0 +1,3 @@
+
+curlpost:
+	./post-file.sh

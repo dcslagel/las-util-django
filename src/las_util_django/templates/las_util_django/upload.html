@@ -1,0 +1,22 @@
+<!--
+  App-Name: las_util_django
+  Project-Name: Las-Util-Django
+  Copyright: Copyright (c) 2019, DC Slagel
+  License-Identifier: BSD-3-Clause
+-->
+{% extends "las_util_django/layout.html" %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'las_util_django/style.css' %}" />
+
+{% block body %}
+<div>
+  <h1>Las File Upload</h1>
+  <div class="form">
+    <form action="#" method="post" enctype="multipart/form-data">
+      {% csrf_token %} {{form}}
+      <input type="submit" value="Upload" />
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!--
+  App-Name: las_util_django
+  Project-Name: Las-Util-Django
+  Copyright: Copyright (c) 2019, DC Slagel
+  License-Identifier: BSD-3-Clause
+-->
+{% extends "las_util_django/layout.html" %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'las_util_django/style.css' %}" />
+
+{% block body %}
+<div>
+  <h1>Las-Util</h1>
+  <table class="doc-detail">
+    <tbody>
+      {% for row in doc %}
+      <tr>
+        <td>{{ row.filename }}</td>
+        <td>{{ row.section }}</td>
+        <td>{{ row.name }}</td>
+        <td>{{ row.unit }}</td>
+        <td>{{ row.value }}</td>
+        <td>{{ row.note }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

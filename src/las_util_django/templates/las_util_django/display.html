@@ -1,0 +1,19 @@
+{% extends "las_util_django/layout.html" %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'las_util_django/style.css' %}" />
+
+{% block body %}
+<div>
+  <h1>Las-Util Doc List</h1>
+  <table class="doc-list">
+    <tbody>
+      {% for doc in docs %}
+      <tr>
+        <td><a href=/displaydetail/{{ doc.filename }}>{{ doc.filename }}</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
