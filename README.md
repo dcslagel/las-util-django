@@ -27,8 +27,8 @@ SYNOPSIS
   then in a web browser browse to:  
   http://127.0.0.1:8000/upload
 
-  Select a LAS file to upload.  The version.las in 
-  las-util-django/src/las_util_django/raw_data is a simple test file.
+  Select a LAS file to upload.  The version.las in    
+  las-util-django/src/las_util_django/raw_data is a simple test file.   
   Click 'upload'    
 
   LAS-Util will upload the file, parse the data and store the date in a database for retrieval. 
