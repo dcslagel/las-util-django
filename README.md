@@ -1,11 +1,11 @@
 NAME
 ----
-ludr - basic Las-Util app in Django
+LAS Util Django - LAS web tools in Python/Django
 
 SYNOPSIS
 --------
 
-  ```
+  ```bash
   # Setup:
   git clone https://github.com/dcslagel/las-util-django
 
@@ -21,14 +21,17 @@ SYNOPSIS
 
 
   ## Run dev web server
-  python manage.py runserver
+  python manage.py run
   ```
 
   then in a web browser browse to:  
   http://127.0.0.1:8000/upload
 
-  Select a LAS file to upload. Ludr will upload the file, parse the data and store
-  the date in a database for retrieval.
+  Select a LAS file to upload.  The version.las in 
+  las-util-django/src/las_util_django/raw_data is a simple test file.
+  Click 'upload'    
+
+  LAS-Util will upload the file, parse the data and store the date in a database for retrieval. 
 
   the resulting data files will be displayed at:  
   http://127.0.0.1:8000/display
@@ -38,12 +41,28 @@ DESCRIPTION
 -----------
 Caution: This is very beta software!
 
-`ludr` currently uploads and reads the version section of LAS formatted file.
-Additional sections will be added in future pushes.
+LAS (Log Ascii Standard) web utilities in Python/Django
+
+LAS file format versions are written and maintained by 
+the Canadian Well Logging Society at   
+http://www.cwls.org/las/
+
+`LAS-Util-Django` current functionality:
+- Uploads a las header file
+- Parses the file
+- Store the parsed data in a SQLite database.
+- Display a list of processed files with links to their details
+- Display detailed data in a table format
 
 It has been tested with Django 2.2.4.
 
 The default database is sqlite.
+
+Future versions will implement:
+- Parse the next las section if included in the upload file
+- Implement rest api
+- Implement unit testing
+- Clean up web display layout
 
 DEPENDENCIES
 ------------
@@ -53,7 +72,6 @@ DEPENDENCIES
 | Django |  2.2.4 |  
 | Django-Rest-Framework |  3.10.2 |  
 | Pytz |  2019.2 |  
-| Reactjs    |  
 | Sqlite3    |  
 
 Django and Django-Rest-Framework can be installed with
