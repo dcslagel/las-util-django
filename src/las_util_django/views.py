@@ -54,7 +54,7 @@ def display(request):
     """
     Display list of las documents
 
-    Get one instance of each filename.
+    Get one instance of each filename from database.
     There will be one 'VERS' row for each filename, so we use that as the filter.
     """
     docs = VersionInfo.objects.filter(name='VERS')

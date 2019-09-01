@@ -1,18 +1,83 @@
-body            { font-family: sans-serif; background: #eee; }
-a, h1, h2       { color: #377BA8; }
-h1, h2          { font-family: 'Georgia', serif; margin: 0; }
-h1              { border-bottom: 2px solid #eee; }
-h2              { font-size: 1.2em; }
+body {
+  padding: 50px;
+  font-family: sans-serif;
+  background: #eee;
+}
 
-.page           { margin: 2em auto; width: 60em; border: 5px solid #ccc;
-                  padding: 0.8em; background: white; }
-.entries        { list-style: none; margin: 0; padding: 0; }
-.entries li     { margin: 0.8em 1.2em; }
-.entries li h2  { margin-left: -1em; }
-.add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
-.add-entry dl   { font-weight: bold; }
-.flash          { background: #CEE5F5; padding: 0.5em;
-                  border: 1px solid #AACBE2; }
-.form           { margin: 40px; border: 1px solid #ccc; padding: 40px; }
-.error          { background: #F0D6D6; padding: 0.5em; }
-.doc-detail     { font-size: 0.8em; }
+a, h1, h2, h3 {
+  color: #377BA8;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  border-bottom: 2px solid #eee;
+}
+
+h2 {
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+hr {
+  color: #eee;
+}
+
+footer {
+  width: 100%;
+  padding: 20px;
+  /* background-color: #1BA1E2; */
+  margin: 0 auto;
+  text-align: center;
+  font-size: 10px;
+  /* Pin footer to the bottom of the screen */
+  position: absolute;
+  bottom: 0;
+}
+
+nav {
+  border-bottom: 2px solid #eee;
+} 
+
+table {
+  width: 100%;
+  margin: 10px auto;
+  padding: 20px;
+  border: 4px solid #ccc;
+  background-color: #eee;
+}
+
+th {
+  color: #eee;
+  background-color: #377BA8;
+  text-align: left;
+}
+
+
+.page            { margin: 2em auto; width: 60em; border: 5px solid #ccc;
+                   padding: 0.8em; background: white; }
+.display-data tr { background-color: #ccc; }
+
+/* Candidates from removal
+.entries         { list-style: none; margin: 0; padding: 0; }
+.entries li      { margin: 0.8em 1.2em; }
+.entries li h2   { margin-left: -1em; }
+.add-entry       { font-size: 0.9em; border-bottom: 1px solid #ccc; }
+.add-entry dl    { font-weight: bold; }
+.flash           { background: #CEE5F5; padding: 0.5em;
+                   border: 1px solid #AACBE2; }
+*/
+
+.doc-detail      { font-size: 0.7em; }
+.form            { margin: 40px; border: 1px solid #ccc; padding: 40px; }
+.error           { background: #F0D6D6; padding: 0.5em; }
+.uploadform {
+  text-align: center;
+  margin: 25px;
+  border: 1px solid #eee;
+  padding: 40px;
+}
