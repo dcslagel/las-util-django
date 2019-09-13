@@ -36,15 +36,34 @@ SYNOPSIS
   the resulting data files will be displayed at:  
   http://127.0.0.1:8000/display/
 
+API
+---
+
+To retrieve uploaded LAS docs:
+```bash
+curl http://127.0.0.1/api/list
+```
+
+To retreive details of a specific LAS doc 
+Syntax:    
+curl http://127.0.0.1/api/detail/[filename]    
+
+Example:     
+```bash
+# first retrieve a filename from the prvious 'api/list' call
+# example: las_file-2019-08-29-21-41-42
+curl http://127.0.0.1/api/detail/las_file-2019-08-29-21-41-42
+```
+
 
 DESCRIPTION
 -----------
-Caution: This is very beta software!
+Caution: This is beta software!
 
 LAS (Log Ascii Standard) web utilities in Python/Django
 
-LAS file format versions are written and maintained by 
-the Canadian Well Logging Society at   
+LAS file format versions are written and maintained by    
+the Canadian Well Logging Society at      
 http://www.cwls.org/las/
 
 `LAS-Util-Django` current functionality:
@@ -53,6 +72,7 @@ http://www.cwls.org/las/
 - Store the parsed data in a SQLite database.
 - Display a list of processed files with links to their details
 - Display detailed data in a table format
+- **Provide api for listing uploaded LAS docs and details**
 
 It has been tested with Django 2.2.4.
 
@@ -60,7 +80,6 @@ The default database is sqlite.
 
 Future versions will implement:
 - Parse the next las section if included in the upload file
-- Implement rest api
 - Implement unit testing
 - Clean up web display layout
 

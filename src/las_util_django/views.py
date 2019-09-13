@@ -9,16 +9,19 @@ License-Identifier: BSD-3-Clause
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
+from django.http import Http404
 
 # imports for rest api
 from rest_framework import generics
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 # las-util-django imports
 from .models import UploadForm, Upload, VersionInfo
 from .cntrl import parse
 
 # las-util-django imports for rest api
-from .serializers import VersionInfoSerializer
+from .serializers import DocSerializer, ListSerializer
 
 
 # Create your views here.
@@ -58,6 +61,7 @@ def display(request):
     There will be one 'VERS' row for each filename, so we use that as the filter.
     """
     docs = VersionInfo.objects.filter(name='VERS')
+    # queryset = VersionInfo.objects.values('filename').distinct()
 
     '''
     res = HttpResponse()
@@ -116,7 +120,27 @@ def displaydetail(request, docName):
 
 
     
-class VersionInfoListCreate(generics.ListCreateAPIView):
+class DumpApi(generics.ListCreateAPIView):
     """Create class for handling GET and POST api requests"""
     queryset = VersionInfo.objects.all()
-    serializer_class = VersionInfoSerializer
+    serializer_class = DocSerializer
+
+
+class ListApi(generics.ListCreateAPIView):
+    """Retrieve json with unique filename list"""
+    queryset = VersionInfo.objects.values('filename').distinct()
+    serializer_class = ListSerializer
+
+
+class DetailApi(APIView):
+
+    def get_objects(self, filename):
+        try:
+            return VersionInfo.objects.filter(filename=filename)
+        except VersionInfo.DoesNotExist:
+            return Http404
+
+    def get(self, request, filename, format=None):
+        queryset = self.get_objects(filename)
+        serializer = DocSerializer(queryset, many=True)
+        return Response(serializer.data)

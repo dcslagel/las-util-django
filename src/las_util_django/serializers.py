@@ -9,8 +9,14 @@ License-Identifier: BSD-3-Clause
 from rest_framework import serializers
 from las_util_django.models import VersionInfo
 
-class VersionInfoSerializer(serializers.ModelSerializer):
+class DocSerializer(serializers.ModelSerializer):
     """Link ModelSerializer to the VersionInfo model"""
     class Meta:
         model = VersionInfo
         fields = '__all__'
+
+class ListSerializer(serializers.ModelSerializer):
+    """Link ModelSerializer to the VersionInfo model"""
+    class Meta:
+        model = VersionInfo
+        fields = ['filename']
