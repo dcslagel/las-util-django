@@ -53,7 +53,7 @@ def upload(request):
 
     return render(request, 'las_util_django/upload.html', context)
 
-def display(request):
+def list(request):
     """
     Display list of las documents
 
@@ -70,7 +70,7 @@ def display(request):
     if docs:
         res.write('<table><tbody>')
         for doc in docs:
-            item = '<tr><td><a href=/displaydetail/' + doc.filename + '>' + doc.filename + '</a></td></tr>'
+            item = '<tr><td><a href=/detail/' + doc.filename + '>' + doc.filename + '</a></td></tr>'
             res.write(item)
         res.write('</tbody></table>')
     else:
@@ -82,12 +82,12 @@ def display(request):
     '''
 
     if docs:
-        return render(request, 'las_util_django/display.html', {'docs': docs})
+        return render(request, 'las_util_django/list.html', {'docs': docs})
     else:
         # If there isn't any files then go back to home page
         return HttpResponseRedirect(reverse('home'))
 
-def displaydetail(request, docName):
+def detail(request, docName):
     doc = VersionInfo.objects.filter(filename=docName)
     '''
     res = HttpResponse()

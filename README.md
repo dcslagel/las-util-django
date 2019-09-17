@@ -34,25 +34,25 @@ SYNOPSIS
   LAS-Util will upload the file, parse the data and store the date in a database for retrieval. 
 
   the resulting data files will be displayed at:  
-  http://127.0.0.1:8000/display/
+  http://127.0.0.1:8000/list/
 
 API
 ---
 
 To retrieve uploaded LAS docs:
 ```bash
-curl http://127.0.0.1/api/list
+curl http://127.0.0.1:8000/api/list/
 ```
 
 To retreive details of a specific LAS doc 
 Syntax:    
-curl http://127.0.0.1/api/detail/[filename]    
+curl http://127.0.0.1:8000/api/detail/[filename]    
 
 Example:     
 ```bash
 # first retrieve a filename from the prvious 'api/list' call
 # example: las_file-2019-08-29-21-41-42
-curl http://127.0.0.1/api/detail/las_file-2019-08-29-21-41-42
+curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42
 ```
 
 
@@ -79,7 +79,8 @@ It has been tested with Django 2.2.4.
 The default database is sqlite.
 
 Future versions will implement:
-- Parse the next las section if included in the upload file
+- Add LAS file posting api
+- Parse the 'Well-Information' section if included in the upload file
 - Implement unit testing
 - Clean up web display layout
 
