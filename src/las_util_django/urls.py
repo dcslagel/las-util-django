@@ -13,12 +13,18 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('upload/', views.upload, name='upload'),
-    path('list/', views.list, name='list'),
-    re_path(r'detail/(?P<docName>[^/]+)$', views.detail, name='detail'),
+    #--------------------------------------------#
+    # API
+    #--------------------------------------------#
     path('api/dump/', views.DumpApi.as_view()),
     path('api/dump', views.DumpApi.as_view()),
     path('api/list/', views.ListApi.as_view()),
     path('api/list', views.ListApi.as_view()),
     re_path('api/detail/(?P<filename>[^/]+)$', views.DetailApi.as_view()),
+    #--------------------------------------------#
+    # WEB
+    #--------------------------------------------#
+    path('upload/', views.upload, name='upload'),
+    path('list/', views.list, name='list'),
+    re_path(r'detail/(?P<docName>[^/]+)$', views.detail, name='detail'),
 ]
