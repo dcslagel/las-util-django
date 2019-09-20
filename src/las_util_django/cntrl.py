@@ -20,7 +20,7 @@ def parse(las_file):
     io_stream = io.TextIOWrapper(las_file)
     
     entry_date = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-    entry_filename = 'las_file-' + entry_date
+    entry_filename = 'las_file-' + entry_date + '.las'
 
     entry = VersionInfo()
     entry.filename = entry_filename
@@ -59,3 +59,5 @@ def parse(las_file):
         # Initialize next entry
         entry = VersionInfo()
         entry.filename = entry_filename
+
+    return entry_filename

@@ -57,24 +57,33 @@ th {
   text-align: left;
 }
 
+.page {
+  margin: 2em auto;
+  width: 60em;
+  border: 5px solid #ccc;
+  padding: 0.8em;
+  background: white;
+ }
 
-.page            { margin: 2em auto; width: 60em; border: 5px solid #ccc;
-                   padding: 0.8em; background: white; }
-.display-data tr { background-color: #ccc; }
+.display-data tr {
+  background-color: #ccc;
+}
 
-/* Candidates from removal
-.entries         { list-style: none; margin: 0; padding: 0; }
-.entries li      { margin: 0.8em 1.2em; }
-.entries li h2   { margin-left: -1em; }
-.add-entry       { font-size: 0.9em; border-bottom: 1px solid #ccc; }
-.add-entry dl    { font-weight: bold; }
-.flash           { background: #CEE5F5; padding: 0.5em;
-                   border: 1px solid #AACBE2; }
-*/
+.doc-detail {
+  font-size: 0.7em;
+}
 
-.doc-detail      { font-size: 0.7em; }
-.form            { margin: 40px; border: 1px solid #ccc; padding: 40px; }
-.error           { background: #F0D6D6; padding: 0.5em; }
+.form {
+  margin: 40px;
+  border: 1px solid #ccc;
+  padding: 40px;
+}
+
+.error {
+  background: #F0D6D6;
+  padding: 0.5em;
+}
+
 .uploadform {
   text-align: center;
   margin: 25px;

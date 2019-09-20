@@ -16,6 +16,8 @@ urlpatterns = [
     #--------------------------------------------#
     # API
     #--------------------------------------------#
+    path('api/upload', views.api_upload),
+    path('api/upload/', views.api_upload),
     path('api/dump/', views.DumpApi.as_view()),
     path('api/dump', views.DumpApi.as_view()),
     path('api/list/', views.ListApi.as_view()),

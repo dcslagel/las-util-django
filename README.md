@@ -39,6 +39,29 @@ SYNOPSIS
 API
 ---
 
+To upload a LAS doc use a post command:
+```bash
+# run a GET in order to retrieve the csrftoken in a cookie
+curl -c cookie.txt http://127.0.0.1:8000/upload/ --silent -S --output /dev/null
+
+# the crsf token is in the 7th field of the cookie
+# optionally: grep csrftoken cookie.txt | cut -f 7
+token=$(awk '/.*csrftoken/ {print $7}' cookie.txt)
+
+
+# Notes:
+# 1. In '-F' 'filename' is the name field of: 
+#   <input type="file" name="filename" required="" id="id_filename">
+
+#--------------------------------------------------------------------
+curl http://127.0.0.1:8000/api/upload/ \
+-v \
+-X POST \
+-F "filename=@version.las" \
+-H "X-CSRFToken: ${token}" \
+-H "Cookie: csrftoken=${token}"
+```
+
 To retrieve uploaded LAS docs:
 ```bash
 curl http://127.0.0.1:8000/api/list/
@@ -72,14 +95,14 @@ http://www.cwls.org/las/
 - Store the parsed data in a SQLite database.
 - Display a list of processed files with links to their details
 - Display detailed data in a table format
-- **Provide api for listing uploaded LAS docs and details**
+- Provide api for listing uploaded LAS docs and details
+- **Provide api for uploading LAS docs**
 
 It has been tested with Django 2.2.4.
 
 The default database is sqlite.
 
 Future versions will implement:
-- Add LAS file posting api
 - Parse the 'Well-Information' section if included in the upload file
 - Implement unit testing
 - Clean up web display layout
@@ -103,7 +126,7 @@ pip install -r requirements.txt
 BUGS
 ----
 
-- Functionality is very basic.
+- Functionality is basic.
 
 
 COPYRIGHT

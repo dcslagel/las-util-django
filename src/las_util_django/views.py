@@ -12,9 +12,11 @@ from django.urls import reverse
 from django.http import Http404
 
 # imports for rest api
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
+
 
 # las-util-django imports
 from .models import UploadForm, Upload, VersionInfo
@@ -22,6 +24,15 @@ from .cntrl import parse
 
 # las-util-django imports for rest api
 from .serializers import DocSerializer, ListSerializer
+
+class JSONResponse(HttpResponse):
+    """
+    An HttpResponse that renders its content info JSON.
+    """
+    def __init__(self, data, **kwargs):
+        content = JSONRenderer().render(data)
+        kwargs['content_type'] = 'application/json'
+        super(JSONResponse, self).__init__(content, **kwargs)
 
 
 # Create your views here.
@@ -119,7 +130,32 @@ def detail(request, docName):
         return HttpResponseRedirect(reverse('home'))
 
 
-    
+def api_upload(request):
+    """Api view for uploading las files"""
+    if request.method == 'POST':
+        inform = UploadForm(request.POST, request.FILES)
+        if inform.is_valid():
+            filename = request.FILES['filename']
+            # parse(request.FILES['filename'])
+            newname = parse(filename)
+            # Redirect to the data display
+            message = "Saved LAS data from {} as {}".format(
+                filename,
+                newname
+            )
+            # TODO: add new url location to Response headers
+            # TODO: add new url to json response data
+            return JSONResponse({'result': message},
+                                status=status.HTTP_201_CREATED)
+        else:
+            return JSONResponse(form.errors,
+                                status=status.HTTP_400_BAD_REQUEST)
+    else:
+        message = "Retry api/upload as a POST request"
+        return JSONResponse({'result': message},
+                            status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
 class DumpApi(generics.ListCreateAPIView):
     """Create class for handling GET and POST api requests"""
     queryset = VersionInfo.objects.all()
