@@ -1,7 +1,7 @@
 """
 File-Name: [app]/cntrl.py
-File-Desc: parsing functions for las_util_django
-App-Name: las_util_django
+File-Desc: parsing functions for las_util
+App-Name: las_util
 Project-Name: Las-Util-Django
 Copyright: Copyright (c) 2019, DC Slagel
 License-Identifier: BSD-3-Clause

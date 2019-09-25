@@ -10,6 +10,6 @@ License-Identifier: BSD-3-Clause
 from django.apps import AppConfig
 
 
-class LasUtilDjangoConfig(AppConfig):
+class LasUtilConfig(AppConfig):
     """Django app config"""
-    name = 'las_util_django'
+    name = 'las_util'

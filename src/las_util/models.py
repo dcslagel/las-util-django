@@ -1,6 +1,6 @@
 """
 File-Name: [app]/models.py
-File-Desc: App models and functions for las-util-django
+File-Desc: App models and functions for las-util
 App-Name: las-util-django
 Project-Name: Las-Util-Django
 Copyright: Copyright (c) 2019, DC Slagel

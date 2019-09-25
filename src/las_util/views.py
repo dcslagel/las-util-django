@@ -40,7 +40,7 @@ def home(request):
     """Home page"""
     context = {}
 
-    return render(request, 'las_util_django/home.html', context)
+    return render(request, 'las_util/home.html', context)
 
 def upload(request):
     """Main page for uploading las files"""
@@ -62,7 +62,7 @@ def upload(request):
         'version_section': version_section
     }
 
-    return render(request, 'las_util_django/upload.html', context)
+    return render(request, 'las_util/upload.html', context)
 
 def list(request):
     """
@@ -74,57 +74,17 @@ def list(request):
     docs = VersionInfo.objects.filter(name='VERS')
     # queryset = VersionInfo.objects.values('filename').distinct()
 
-    '''
-    res = HttpResponse()
-    res.write('<!doctype html><html><head></head><body>')
-
     if docs:
-        res.write('<table><tbody>')
-        for doc in docs:
-            item = '<tr><td><a href=/detail/' + doc.filename + '>' + doc.filename + '</a></td></tr>'
-            res.write(item)
-        res.write('</tbody></table>')
-    else:
-        # If there isn't any files then go back to home page
-        return HttpResponseRedirect(reverse('home'))
-
-    res.write("</body></html>")
-    return res
-    '''
-
-    if docs:
-        return render(request, 'las_util_django/list.html', {'docs': docs})
+        return render(request, 'las_util/list.html', {'docs': docs})
     else:
         # If there isn't any files then go back to home page
         return HttpResponseRedirect(reverse('home'))
 
 def detail(request, docName):
     doc = VersionInfo.objects.filter(filename=docName)
-    '''
-    res = HttpResponse()
-    res.write("<!doctype html><html><head></head><body>")
-
-    if docs:
-        res.write('<table><tbody>')
-        for row in docs:
-            filename = '<tr><td>' + row.filename + '</td>'
-            section = '<td>' + row.section + '</td>'
-            name = '<td>' + row.name + '</td>'
-            unit = '<td>' + row.unit + '</td>'
-            value = '<td>' + row.value + '</td>'
-            note = '<td>' + row.note + '</td>'
-            item = filename + section + name + unit + value + note + '</tr>'
-            res.write(item)
-        res.write("</body></html>")
-    else:
-        # If there isn't any files then go back to home page
-        return HttpResponseRedirect(reverse('home'))
-
-    return res
-    '''
 
     if doc:
-        return render(request, 'las_util_django/detail_display.html', {'doc': doc})
+        return render(request, 'las_util/detail_display.html', {'doc': doc})
     else:
         # If there isn't any files then go back to home page
         return HttpResponseRedirect(reverse('home'))
@@ -132,11 +92,21 @@ def detail(request, docName):
 
 def api_upload(request):
     """Api view for uploading las files"""
+    """
+        This is an example for using the Serializer class
+        TODO: Find an example that uploads a file
+        elif request.method == 'PUT':
+            data = JSONParser().parse(request)
+            serializer = SnippetSerializer(snippet, data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data)
+            return JsonResonse(serializer.errors, status=400)
+    """
     if request.method == 'POST':
         inform = UploadForm(request.POST, request.FILES)
         if inform.is_valid():
             filename = request.FILES['filename']
-            # parse(request.FILES['filename'])
             newname = parse(filename)
             # Redirect to the data display
             message = "Saved LAS data from {} as {}".format(
@@ -154,6 +124,7 @@ def api_upload(request):
         message = "Retry api/upload as a POST request"
         return JSONResponse({'result': message},
                             status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
 
 
 class DumpApi(generics.ListCreateAPIView):

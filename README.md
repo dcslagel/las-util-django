@@ -2,6 +2,34 @@ NAME
 ----
 LAS Util Django - LAS web tools in Python/Django
 
+DESCRIPTION
+-----------
+Caution: This is beta software!
+
+LAS (Log Ascii Standard) web utilities in Python/Django
+
+LAS well log file format versions are written and maintained by    
+the Canadian Well Logging Society at      
+http://www.cwls.org/las/
+
+`LAS-Util-Django` current functionality:
+- Uploads a las header file
+- Parses the file
+- Store the parsed data in a SQLite database.
+- Display a list of processed files with links to their details
+- Display detailed data in a table format
+- Provide api for listing uploaded LAS docs and details
+- **Provide api for uploading LAS docs**
+
+It has been tested with Django 2.2.4.
+
+The default database is sqlite.
+
+Future versions will implement:
+- Parse the 'Well-Information' section if included in the upload file
+- Implement unit testing
+- Clean up web display layout
+
 SYNOPSIS
 --------
 
@@ -14,7 +42,7 @@ SYNOPSIS
   pip install -r requirements.txt
 
   ## prep django database
-  ## cd las-util-django-rest/src/
+  ## cd las-util-django/src/
   cd src
   python manage.py makemigrations
   python manage.py migrate
@@ -78,34 +106,6 @@ Example:
 curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42
 ```
 
-
-DESCRIPTION
------------
-Caution: This is beta software!
-
-LAS (Log Ascii Standard) web utilities in Python/Django
-
-LAS file format versions are written and maintained by    
-the Canadian Well Logging Society at      
-http://www.cwls.org/las/
-
-`LAS-Util-Django` current functionality:
-- Uploads a las header file
-- Parses the file
-- Store the parsed data in a SQLite database.
-- Display a list of processed files with links to their details
-- Display detailed data in a table format
-- Provide api for listing uploaded LAS docs and details
-- **Provide api for uploading LAS docs**
-
-It has been tested with Django 2.2.4.
-
-The default database is sqlite.
-
-Future versions will implement:
-- Parse the 'Well-Information' section if included in the upload file
-- Implement unit testing
-- Clean up web display layout
 
 DEPENDENCIES
 ------------

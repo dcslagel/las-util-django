@@ -1,7 +1,7 @@
 """
 File-Name: [app]/urls.py
 File-Desc: App specific urls
-App-Name: las_util_django
+App-Name: las_util
 Project-Name: Las-Util-Django
 Copyright: Copyright (c) 2019, DC Slagel
 License-Identifier: BSD-3-Clause
