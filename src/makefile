@@ -17,6 +17,11 @@ migrate: ## apply any database migrations
 loadtestdata:
 	python manage.py loaddata las
 
+test:  # Run las_util test suite
+	# python manage.py test las_util
+	# python -Wa manage.py test las_util
+	python -Wignore::DeprecationWarning:distutils.* manage.py test las_util
+
 
 # Add the following 'help' target to your Makefile
 # # And add help text after each target name starting with '\#\#'

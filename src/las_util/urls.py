@@ -20,8 +20,7 @@ urlpatterns = [
     path('api/upload/', views.api_upload),
     path('api/dump/', views.DumpApi.as_view()),
     path('api/dump', views.DumpApi.as_view()),
-    path('api/list/', views.ListApi.as_view()),
-    path('api/list', views.ListApi.as_view()),
+    re_path('api/list/?$', views.ListApi.as_view()),
     re_path('api/detail/(?P<filename>[^/]+)$', views.DetailApi.as_view()),
     #--------------------------------------------#
     # WEB
