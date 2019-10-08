@@ -9,9 +9,11 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <title>LAS-Util</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Log Ascii Standard web utilities">
+
   <link rel="stylesheet" type="text/css" href="{% static 'las_util/style.css' %}" />
-  <title>Las-Util</title>
 </head>
 <body>
 <div class="page">
@@ -23,9 +25,9 @@
   {% block menu %}
   <nav>
     <ul>
-      <li><a href='/'>Home</a></li>
-      <li><a href='/upload/'>Upload LAS File</a></li>
-      <li><a href='/list/'>Display LAS File List</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/upload/">Upload-File</a></li>
+      <li><a href="/list/">Display-Files</a></li>
     </ul>
   </nav>
   {% endblock %}
@@ -35,7 +37,7 @@
 </div>
 {% block footer %}
 <footer>
-  Copyright &copy; 2019, DC Slagel
+  Copyright &copy; 2019-Present, DC Slagel
 </footer>
 {%endblock %}
 </body>

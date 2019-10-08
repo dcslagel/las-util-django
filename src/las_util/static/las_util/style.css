@@ -1,7 +1,14 @@
+:root {
+  font-size: 1em;
+}
+
 body {
-  padding: 50px;
   font-family: sans-serif;
   background: #eee;
+}
+
+nav a {
+  text-decoration: none;
 }
 
 a, h1, h2, h3 {
@@ -9,7 +16,6 @@ a, h1, h2, h3 {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Georgia', serif;
   margin: 0;
   text-align: center;
 }
@@ -20,33 +26,32 @@ h1 {
 
 h2 {
   font-size: 1.2em;
-  padding: 10px;
+  padding: 0.8em;
 }
 
 hr {
-  color: #eee;
+  color: #eee; /* light gray */
 }
 
 footer {
   width: 100%;
-  padding: 20px;
+  padding: 1.25em;
   /* background-color: #1BA1E2; */
   margin: 0 auto;
   text-align: center;
-  font-size: 10px;
+  font-size: 0.625em;
   /* Pin footer to the bottom of the screen */
   position: absolute;
   bottom: 0;
 }
 
 nav {
-  border-bottom: 2px solid #eee;
+  border-bottom: 0.1em solid #eee;
 } 
 
 table {
   width: 100%;
-  margin: 10px auto;
-  padding: 20px;
+  padding: 1.25em;
   border: 4px solid #ccc;
   background-color: #eee;
 }
@@ -57,9 +62,21 @@ th {
   text-align: left;
 }
 
+/* ul and li padding and display control menu display */
+ul {
+  padding-left: 0em;
+  background-color: #eee;
+}
+
+li {
+  display: inline-block;
+  padding: 0.3em 0.6em;
+}
+
+
 .page {
   margin: 2em auto;
-  width: 60em;
+  width: 30vm;
   border: 5px solid #ccc;
   padding: 0.8em;
   background: white;
@@ -70,13 +87,20 @@ th {
 }
 
 .doc-detail {
-  font-size: 0.7em;
+  font-size: 0.65em;
 }
 
 .form {
-  margin: 40px;
+  margin: 0em;
   border: 1px solid #ccc;
-  padding: 40px;
+  padding: 2em;
+}
+
+.form-centered {
+  text-align: center;
+  margin: 0em;
+  border: 1px solid #ccc;
+  padding: 2em;
 }
 
 .error {
@@ -84,9 +108,3 @@ th {
   padding: 0.5em;
 }
 
-.uploadform {
-  text-align: center;
-  margin: 25px;
-  border: 1px solid #eee;
-  padding: 40px;
-}

@@ -4,16 +4,12 @@
 <link rel="stylesheet" type="text/css" href="{% static 'las_util/style.css' %}" />
 
 {% block body %}
-<div>
-  <h2>LAS File Upload</h2>
-  <div class="form">
-    <form action="#" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <table>
-      {{form}}
-      </table>
-      <input type="submit" value="Upload" />
-    </form>
-  </div>
-</div>
+  <h2>Upload LAS File</h2>
+  <form action="#" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="form">
+    {{form}}
+    </table>
+    <input type="submit" value="Upload" />
+  </form>
 {% endblock %}

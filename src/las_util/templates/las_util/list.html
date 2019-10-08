@@ -4,16 +4,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'las_util/style.css' %}" />
 
 {% block body %}
-<div>
-  <h1>Las-Util Doc List</h1>
-  <table class="doc-list">
-    <tbody>
-      {% for doc in docs %}
-      <tr>
-        <td><a href=/detail/{{ doc.filename }}>{{ doc.filename }}</a></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+<h2>LAS-Util File List</h2>
+<table class="doc-list">
+  <tbody>
+    {% for doc in docs %}
+    <tr>
+      <td><a href=/detail/{{ doc.filename }}>{{ doc.filename }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
