@@ -76,7 +76,8 @@ li {
 
 .page {
   margin: 2em auto;
-  width: 30vm;
+  /* firefox doesn't like this stmt, maybe not needed */
+  /* width: 30vm; */
   border: 5px solid #ccc;
   padding: 0.8em;
   background: white;

@@ -4,8 +4,10 @@ from django.test import TestCase
 
 from .models import VersionInfo
 
+
 # Create your tests here.
 class RouteTests(TestCase):
+    mimetype = 'text/html'
 
     def setup(self):
         VersionInfo.objects.create(name="myverisionline")
@@ -13,28 +15,54 @@ class RouteTests(TestCase):
     def test_home_returns_200(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
+        self.assertIn(self.mimetype, response.__getitem__('content-type'))
+        self.assertIn(b'<h2>Welcome to LAS-Util</h2>', response.content)
+        self.assertIn(b'Copyright &copy; 2019 - Present, DC Slagel', response.content)
 
-    def test_list_no_slash_returns_301(self):
+    def test_upload_no_slash_returns_301(self):
         response = self.client.get('/upload')
         self.assertEqual(response.status_code, 301)
+        self.assertIn(self.mimetype, response.__getitem__('content-type'))
+        self.assertEqual('/upload/', response['location'])
+        self.assertIn(b'', response.content)
 
     def test_upload_with_slash_returns_200(self):
         response = self.client.get('/upload/')
         self.assertEqual(response.status_code, 200)
+        self.assertIn(self.mimetype, response.__getitem__('content-type'))
+        self.assertIn(b'<h2>Upload LAS File</h2>', response.content)
+        self.assertIn(b'Copyright &copy; 2019 - Present, DC Slagel', response.content)
 
     def test_list_no_slash_returns_301(self):
         response = self.client.get('/list')
         self.assertEqual(response.status_code, 301)
+        self.assertIn(self.mimetype, response.__getitem__('content-type'))
+        self.assertEqual('/list/', response['location'])
+        self.assertIn(b'', response.content)
 
     def test_list_with_slash_returns_302(self):
         response = self.client.get('/list/')
         self.assertEqual(response.status_code, 302)
+        self.assertIn(self.mimetype, response.__getitem__('content-type'))
+        # Till test data is added
+        self.assertEqual('/', response['location'])
+        self.assertIn(b'', response.content)
 
-    def test_upload_get_no_slash_returns_405(self):
+
+class ApiRouteTests(TestCase):
+    mimetype = 'text/html'
+
+    def setup(self):
+        VersionInfo.objects.create(name="myverisionline")
+
+    def test_api_upload_get_no_slash_returns_405(self):
         response = self.client.get('/api/upload')
-        self.assertEqual(response.status_code, 405)
+        test_str = b'{"result":"Retry api/upload as a POST request"}'
 
-    def test_upload_get_with_slash_returns_405(self):
+        self.assertEqual(response.status_code, 405)
+        self.assertEqual(test_str, response.content)
+
+    def test_api_upload_get_with_slash_returns_405(self):
         response = self.client.get('/api/upload/')
         self.assertEqual(response.status_code, 405)
 
@@ -51,22 +79,34 @@ class RouteTests(TestCase):
                 { 'filename' : fp })
             self.assertEqual(response.status_code, 201)
 
+
     def test_dump_no_slash_returns_200(self):
         response = self.client.get('/api/dump')
+        test_str = b'[]'
+
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(test_str, response.content)
 
     def test_dump_with_slash_returns_200(self):
         response = self.client.get('/api/dump/')
+        test_str = b'[]'
+
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(test_str, response.content)
 
     def test_list_no_slash_returns_200(self):
         response = self.client.get('/api/list')
+        test_str = b'[]'
+
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(test_str, response.content)
 
     def test_list_with_slash_returns_200(self):
         response = self.client.get('/api/list/')
-        self.assertEqual(response.status_code, 200)
+        test_str = b'[]'
 
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(test_str, response.content)
 
     """
     def test_versioninfo_object(self):

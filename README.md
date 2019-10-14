@@ -1,6 +1,8 @@
 NAME
 ----
-LAS Util Django - LAS web tools in Python/Django
+
+LAS Util - LAS web tools in Python/Django
+
 
 DESCRIPTION
 -----------
@@ -13,40 +15,54 @@ the Canadian Well Logging Society at
 http://www.cwls.org/las/
 
 `LAS-Util-Django` current functionality:
-- Uploads a las header file
-- Parses the file
+- Upload a LAS file that includes only the VERSION section
+- Parse the VERSION section and save it to the database
 - Store the parsed data in a SQLite database.
 - Display a list of processed files with links to their details
 - Display detailed data in a table format
 - Provide api for listing uploaded LAS docs and details
-- **Provide api for uploading LAS docs**
+- Provide api for uploading LAS docs
+- Unit testing
 
 It has been tested with Django 2.2.4.
 
 The default database is sqlite.
 
 Future versions will implement:
+- Add test data
 - Parse the 'Well-Information' section if included in the upload file
-- Implement unit testing
-- Clean up web display layout
+
 
 SYNOPSIS
 --------
 
   ```bash
   # Setup:
+
+  ## Make workdir
+  mkdir workdir
+  cd workdir
+
+  ## Create virualenv
+  python3 -m venv site-venv
+  source site-env/bin/activate
+
+  ## Clone the project
   git clone https://github.com/dcslagel/las-util-django
 
-  ## install python/django dependencies
+  ## Install python/django dependencies
   cd las-util-django/
   pip install -r requirements.txt
 
-  ## prep django database
+  ## Prep django database
   ## cd las-util-django/src/
   cd src
   python manage.py makemigrations
   python manage.py migrate
 
+
+  ## Run test suite: All tests should pass
+  python manage.py test
 
   ## Run dev web server
   python manage.py runserver
@@ -59,13 +75,17 @@ SYNOPSIS
   las-util-django/src/las_util_django/raw_data is a simple test file.   
   Click 'upload'    
 
-  LAS-Util will upload the file, parse the data and store the date in a database for retrieval. 
+  LAS-Util will:
+  - upload the file to las-util-flask/src/uploads
+  - parse the version section and save it to the database
+
+Select the 'Display-Files' menu item. The uploaded file will have the most recent date.
 
   the resulting data files will be displayed at:  
   http://127.0.0.1:8000/list/
 
-API
----
+REST API
+--------
 
 To upload a LAS doc use a post command:
 ```bash
@@ -97,7 +117,9 @@ curl http://127.0.0.1:8000/api/list/
 
 To retreive details of a specific LAS doc 
 Syntax:    
+```bash
 curl http://127.0.0.1:8000/api/detail/[filename]    
+```
 
 Example:     
 ```bash
@@ -112,10 +134,10 @@ DEPENDENCIES
 
 | Component | Version |  
 |-----------|---------|
-| Django |  2.2.4 |  
-| Django-Rest-Framework |  3.10.2 |  
-| Pytz |  2019.2 |  
-| Sqlite3    |  
+| Django                | 2.2.4  | 
+| Django-Rest-Framework | 3.10.2 | 
+| Pytz                  | 2019.2 | 
+| Sqlite3               | |
 
 Django and Django-Rest-Framework can be installed with
 ```
