@@ -1,16 +1,24 @@
 import sys
 from django.test import TestCase
+from django.urls import reverse
 
-
-from .models import VersionInfo
+from las_util.models import VersionInfo
 
 
 # Create your tests here.
-class RouteTests(TestCase):
+class ViewTests(TestCase):
     mimetype = 'text/html'
+    fixtures = ['version_info_data.json']
 
-    def setup(self):
-        VersionInfo.objects.create(name="myverisionline")
+    @classmethod
+    def setUpTestData(self):
+        '''print("setUpTestData: Run once to set up data for all ModelTests")'''
+        VersionInfo.objects.create(name="myversionline")
+        pass
+
+    def setUp(self):
+        '''print("setUp: Run once for every test method")'''
+        pass
 
     def test_home_returns_200(self):
         response = self.client.get('/')
@@ -24,36 +32,53 @@ class RouteTests(TestCase):
         self.assertEqual(response.status_code, 301)
         self.assertIn(self.mimetype, response.__getitem__('content-type'))
         self.assertEqual('/upload/', response['location'])
-        self.assertIn(b'', response.content)
+        self.assertEqual(response.content, b'')
+        # self.assertRedirects(response, '/upload/') # this currently fails with expected 302, got 301
 
     def test_upload_with_slash_returns_200(self):
         response = self.client.get('/upload/')
         self.assertEqual(response.status_code, 200)
         self.assertIn(self.mimetype, response.__getitem__('content-type'))
+        self.assertTemplateUsed(response, 'las_util/upload.html')
         self.assertIn(b'<h2>Upload LAS File</h2>', response.content)
         self.assertIn(b'Copyright &copy; 2019 - Present, DC Slagel', response.content)
+
+    def test_upload_view_accessible_by_name(self):
+        response = self.client.get(reverse('upload'))
+        self.assertEqual(response.status_code, 200)
 
     def test_list_no_slash_returns_301(self):
         response = self.client.get('/list')
         self.assertEqual(response.status_code, 301)
         self.assertIn(self.mimetype, response.__getitem__('content-type'))
-        self.assertEqual('/list/', response['location'])
-        self.assertIn(b'', response.content)
+        self.assertEqual(response['location'], '/list/')
+        self.assertEqual(response.content, b'')
 
-    def test_list_with_slash_returns_302(self):
+    def test_list_with_slash_returns_200(self):
         response = self.client.get('/list/')
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
         self.assertIn(self.mimetype, response.__getitem__('content-type'))
-        # Till test data is added
-        self.assertEqual('/', response['location'])
-        self.assertIn(b'', response.content)
+        self.assertTemplateUsed(response, 'las_util/list.html')
+        self.assertIn(b'<h2>LAS-Util File List</h2>', response.content)
+        test_str = b'href=/detail/las_file-2019-10-01-11-11-50.las'
+        self.assertIn(test_str, response.content)
+
+    def test_list_view_accessible_by_name(self):
+        response = self.client.get(reverse('list'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_detail_with_slash_returns_200(self):
+        response = self.client.get('/detail/las_file-2019-10-01-11-11-50.las')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'las_util/detail_display.html')
+        
 
 
-class ApiRouteTests(TestCase):
+class ApiViewTests(TestCase):
     mimetype = 'text/html'
 
-    def setup(self):
-        VersionInfo.objects.create(name="myverisionline")
+    def setUp(self):
+        pass
 
     def test_api_upload_get_no_slash_returns_405(self):
         response = self.client.get('/api/upload')
@@ -116,8 +141,9 @@ class ApiRouteTests(TestCase):
 
 class VersionInfoTests(TestCase):
 
-    def test_is_section_the_version_section(self):
-        VersionInfo.objects.create(name="myverisionline")
+    def setUp(self):
+        VersionInfo.objects.create(name="myversionline")
 
+    def test_is_section_the_version_section(self):
         vi = VersionInfo.objects.all()
-        self.assertIs(len(vi) == 1, True)
+        self.assertEqual(len(vi), 1)

@@ -14,13 +14,28 @@ makemigrations: ## update database migration configs
 migrate: ## apply any database migrations
 	python manage.py migrate
 
+dumpdata: ## dump data to fixture
+	python manage.py dumpdata --indent 2 las_util.versioninfo > las_util/fixtures/version_info_data.json
+
 loadtestdata:
 	python manage.py loaddata las
 
-test:  # Run las_util test suite
+test: ## Run las_util test suite
 	# python manage.py test las_util
 	# python -Wa manage.py test las_util
 	python -Wignore::DeprecationWarning:distutils.* manage.py test las_util
+
+testmodels: ## Run las_util model tests
+	python manage.py test las_util.tests.test_models
+
+testviews: ## Run las_util route tests
+	python manage.py test las_util.tests.test_views
+
+coverage: ## Run coverage report: see local .coveragerc for settings
+	# coverage run --source=las_util manage.py test las_util
+	coverage run manage.py test las_util
+	coverage report -m
+	# coverage html
 
 
 # Add the following 'help' target to your Makefile

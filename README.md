@@ -22,15 +22,17 @@ http://www.cwls.org/las/
 - Display detailed data in a table format
 - Provide api for listing uploaded LAS docs and details
 - Provide api for uploading LAS docs
-- Unit testing
+- Unit testing with data fixtures
+- Test coverage reporting
 
-It has been tested with Django 2.2.4.
+It has been tested with Django 2.2.6.
 
 The default database is sqlite.
 
 Future versions will implement:
-- Add test data
 - Parse the 'Well-Information' section if included in the upload file
+- Add test for file upload
+- Update interface for multiple device formats
 
 
 SYNOPSIS
@@ -134,7 +136,8 @@ DEPENDENCIES
 
 | Component | Version |  
 |-----------|---------|
-| Django                | 2.2.4  | 
+| coverage              | 4.5.4  | 
+| Django                | 2.2.6  | 
 | Django-Rest-Framework | 3.10.2 | 
 | Pytz                  | 2019.2 | 
 | Sqlite3               | |
