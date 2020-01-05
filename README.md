@@ -15,8 +15,8 @@ the Canadian Well Logging Society at
 http://www.cwls.org/las/
 
 `LAS-Util-Django` current functionality:
-- Upload a LAS file that includes only the VERSION section
-- Parse the VERSION section and save it to the database
+- Upload a LAS file that includes only the VERSION and WELL sections
+- Parse the VERSION and WELL sections
 - Store the parsed data in a SQLite database.
 - Display a list of processed files with links to their details
 - Display detailed data in a table format
@@ -25,11 +25,12 @@ http://www.cwls.org/las/
 - Unit testing with data fixtures
 - Test coverage reporting
 
-It has been tested with Django 2.2.6.
+It has been tested with Django 2.2.8.
 
 The default database is sqlite.
 
 Future versions will implement:
+- Verify test suite on a fresh install
 - Parse the 'Well-Information' section if included in the upload file
 - Add test for file upload
 - Update interface for multiple device formats
@@ -73,13 +74,16 @@ SYNOPSIS
   then in a web browser browse to:  
   http://127.0.0.1:8000/upload/
 
-  Select a LAS file to upload.  The version.las in    
-  las-util-django/src/las_util_django/raw_data is a simple test file.   
+  Select a LAS file to upload, either:
+  las-util-django/src/las_util/example_data/version.las
+  or
+  las-util-django/src/las_util/example_data/sample_2.0_well_section.las
+
   Click 'upload'    
 
   LAS-Util will:
   - upload the file to las-util-flask/src/uploads
-  - parse the version section and save it to the database
+  - parse the version and well sections and save them to the database
 
 Select the 'Display-Files' menu item. The uploaded file will have the most recent date.
 
@@ -137,8 +141,8 @@ DEPENDENCIES
 | Component | Version |  
 |-----------|---------|
 | coverage              | 4.5.4  | 
-| Django                | 2.2.6  | 
-| Django-Rest-Framework | 3.10.2 | 
+| Django                | 2.2.8  | 
+| Django-Rest-Framework | 3.10.3 | 
 | Pytz                  | 2019.2 | 
 | Sqlite3               | |
 
