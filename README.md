@@ -25,7 +25,7 @@ http://www.cwls.org/las/
 - Unit testing with data fixtures
 - Test coverage reporting
 
-It has been tested with Django 2.2.8.
+It has been tested with Django 2.2.9.
 
 The default database is sqlite.
 
@@ -141,7 +141,7 @@ DEPENDENCIES
 | Component | Version |  
 |-----------|---------|
 | coverage              | 4.5.4  | 
-| Django                | 2.2.8  | 
+| Django                | 2.2.9  | 
 | Django-Rest-Framework | 3.10.3 | 
 | Pytz                  | 2019.2 | 
 | Sqlite3               | |
