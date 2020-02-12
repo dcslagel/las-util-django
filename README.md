@@ -25,7 +25,7 @@ http://www.cwls.org/las/
 - Unit testing with data fixtures
 - Test coverage reporting
 
-It has been tested with Django 2.2.9.
+It has been tested with Django 2.2.10.
 
 The default database is sqlite.
 
