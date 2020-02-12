@@ -1,5 +1,5 @@
 coverage==4.5.4
-Django==2.2.9
+Django==2.2.10
 djangorestframework==3.10.3
 pytz==2019.2
 sqlparse==0.3.0
