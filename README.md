@@ -141,7 +141,7 @@ DEPENDENCIES
 | Component | Version |  
 |-----------|---------|
 | coverage              | 4.5.4  | 
-| Django                | 2.2.9  | 
+| Django                | 2.2.10 | 
 | Django-Rest-Framework | 3.10.3 | 
 | Pytz                  | 2019.2 | 
 | Sqlite3               | |
