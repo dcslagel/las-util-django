@@ -8,32 +8,31 @@ DESCRIPTION
 -----------
 Caution: This is beta software!
 
-LAS (Log Ascii Standard) web utilities in Python/Django
+LAS (Log Ascii Standard - Version 2.0) web utilities in Python/Django
 
 LAS well log file format versions are written and maintained by    
 the Canadian Well Logging Society at      
-http://www.cwls.org/las/
+https://www.cwls.org/products/
 
 `LAS-Util-Django` current functionality:
-- Upload a LAS file that includes only the VERSION and WELL sections
-- Parse the VERSION and WELL sections
+- Upload a LAS file that includes only the VERSION and WELL sections.
+- Parse the VERSION and WELL sections.
 - Store the parsed data in a SQLite database.
-- Display a list of processed files with links to their details
-- Display detailed data in a table format
-- Provide api for listing uploaded LAS docs and details
-- Provide api for uploading LAS docs
-- Unit testing with data fixtures
-- Test coverage reporting
+- Display a list of processed files with links to their details.
+- Display detailed data in a table format.
+- Provide api for listing uploaded LAS docs and details.
+- Provide api for uploading LAS docs.
+- Unit testing with data fixtures.
+- Test coverage reporting.
 
 It has been tested with Django 2.2.10.
 
 The default database is sqlite.
 
 Future versions will implement:
-- Verify test suite on a fresh install
-- Parse the 'Well-Information' section if included in the upload file
-- Add test for file upload
-- Update interface for multiple device formats
+- Parse the PARAMETER section.
+- Add test for file upload.
+- Update interface for multiple device formats.
 
 
 SYNOPSIS
@@ -74,15 +73,13 @@ SYNOPSIS
   then in a web browser browse to:  
   http://127.0.0.1:8000/upload/
 
-  Select a LAS file to upload, either:
-  las-util-django/src/las_util/example_data/version.las
-  or
-  las-util-django/src/las_util/example_data/sample_2.0_well_section.las
+  Select one of these LAS files to upload:
+  - las-util-django/src/las_util/example_data/version.las
+  - las-util-django/src/las_util/example_data/sample_2.0_well_section.las
 
   Click 'upload'    
 
   LAS-Util will:
-  - upload the file to las-util-flask/src/uploads
   - parse the version and well sections and save them to the database
 
 Select the 'Display-Files' menu item. The uploaded file will have the most recent date.
@@ -161,4 +158,4 @@ BUGS
 COPYRIGHT
 ------
 
-Copyright (c) 2019 DC Slagel
+Copyright (c) 2019 - 2020 DC Slagel
