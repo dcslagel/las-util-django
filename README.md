@@ -28,7 +28,7 @@ https://www.cwls.org/products/
 - Unit testing with data fixtures.
 - Test coverage reporting.
 
-It has been tested with Django 2.2.10.
+It has been tested with Django versions 3.0.6 and 2.2.10.
 
 The default database is sqlite.
 
@@ -167,10 +167,10 @@ DEPENDENCIES
 
 | Component | Version |
 |-----------|---------|
-| coverage              | 4.5.4  | 
-| Django                | 2.2.10 | 
-| Django-Rest-Framework | 3.10.3 | 
-| Pytz                  | 2019.2 | 
+| coverage              | 5.1  | 
+| Django                | 3.0.6 | 
+| Django-Rest-Framework | 3.11.0 | 
+| Pytz                  | 2020.1 | 
 | Sqlite3               | |
 
 Django and Django-Rest-Framework can be installed with

@@ -1,5 +1,8 @@
-coverage==4.5.4
-Django==2.2.10
-djangorestframework==3.10.3
-pytz==2019.2
-sqlparse==0.3.0
+asgiref==3.2.7
+coverage==5.1
+Django==3.0.6
+djangorestframework==3.11.0
+pytz==2020.1
+readline==6.2.4.1
+six==1.15.0
+sqlparse==0.3.1
