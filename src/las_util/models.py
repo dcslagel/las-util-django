@@ -22,8 +22,8 @@ class UploadForm(ModelForm):
         model = Upload
         fields = ('filename',)
 
-class VersionInfo(models.Model):
-    """Version Section fields"""
+class SectionInfo(models.Model):
+    """Section fields for LAS metadata sections"""
     filename = models.CharField(max_length=100)
     section = models.CharField(max_length=30)
     name = models.CharField(max_length=10)

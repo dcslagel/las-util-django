@@ -2,18 +2,18 @@ import sys
 from django.test import TestCase
 from django.urls import reverse
 
-from las_util.models import VersionInfo
+from las_util.models import SectionInfo
 
 
 # Create your tests here.
 class ViewTests(TestCase):
     mimetype = 'text/html'
-    fixtures = ['version_info_data.json']
+    fixtures = ['section_info_data.json']
 
     @classmethod
     def setUpTestData(self):
         '''print("setUpTestData: Run once to set up data for all ModelTests")'''
-        VersionInfo.objects.create(name="myversionline")
+        SectionInfo.objects.create(name="myversionline")
         pass
 
     def setUp(self):
@@ -60,7 +60,7 @@ class ViewTests(TestCase):
         self.assertIn(self.mimetype, response.__getitem__('content-type'))
         self.assertTemplateUsed(response, 'las_util/list.html')
         self.assertIn(b'<h2>LAS-Util File List</h2>', response.content)
-        test_str = b'href=/detail/las_file-2019-10-01-11-11-50.las'
+        test_str = b'href=/detail/las_file-2020-06-01-18-40-26.las'
         self.assertIn(test_str, response.content)
 
     def test_list_view_accessible_by_name(self):
@@ -68,7 +68,7 @@ class ViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_detail_with_slash_returns_200(self):
-        response = self.client.get('/detail/las_file-2019-10-01-11-11-50.las')
+        response = self.client.get('/detail/las_file-2020-06-01-18-40-26.las')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'las_util/detail_display.html')
         
@@ -135,15 +135,15 @@ class ApiViewTests(TestCase):
 
     """
     def test_versioninfo_object(self):
-        vi = VersionInfo.objects.get(name="myversionline")
+        vi = SectionInfo.objects.get(name="myversionline")
         self.assertEqual(vi['name'] == 'myversionline', True)
     """
 
-class VersionInfoTests(TestCase):
+class SectionInfoTests(TestCase):
 
     def setUp(self):
-        VersionInfo.objects.create(name="myversionline")
+        SectionInfo.objects.create(name="myversionline")
 
     def test_is_section_the_version_section(self):
-        vi = VersionInfo.objects.all()
+        vi = SectionInfo.objects.all()
         self.assertEqual(len(vi), 1)

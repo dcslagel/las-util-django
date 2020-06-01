@@ -19,7 +19,7 @@ from rest_framework.renderers import JSONRenderer
 
 
 # las-util-django imports
-from .models import UploadForm, Upload, VersionInfo
+from .models import UploadForm, Upload, SectionInfo
 from .cntrl import parse
 
 # las-util-django imports for rest api
@@ -54,7 +54,7 @@ def upload(request):
         inform = UploadForm()
 
     infileslist = Upload.objects.all().order_by('-upload_date')
-    version_section = VersionInfo.objects.all()
+    version_section = SectionInfo.objects.all()
 
     context = {
         'form': inform,
@@ -71,8 +71,8 @@ def list(request):
     Get one instance of each filename from database.
     There will be one 'VERS' row for each filename, so we use that as the filter.
     """
-    docs = VersionInfo.objects.filter(name='VERS')
-    # queryset = VersionInfo.objects.values('filename').distinct()
+    docs = SectionInfo.objects.filter(name='VERS')
+    # queryset = SectionInfo.objects.values('filename').distinct()
 
     if docs:
         return render(request, 'las_util/list.html', {'docs': docs})
@@ -81,7 +81,7 @@ def list(request):
         return HttpResponseRedirect(reverse('home'))
 
 def detail(request, docName):
-    doc = VersionInfo.objects.filter(filename=docName)
+    doc = SectionInfo.objects.filter(filename=docName)
 
     if doc:
         return render(request, 'las_util/detail_display.html', {'doc': doc})
@@ -129,13 +129,13 @@ def api_upload(request):
 
 class DumpApi(generics.ListCreateAPIView):
     """Create class for handling GET and POST api requests"""
-    queryset = VersionInfo.objects.all()
+    queryset = SectionInfo.objects.all()
     serializer_class = DocSerializer
 
 
 class ListApi(generics.ListCreateAPIView):
     """Retrieve json with unique filename list"""
-    queryset = VersionInfo.objects.values('filename').distinct()
+    queryset = SectionInfo.objects.values('filename').distinct()
     serializer_class = ListSerializer
 
 
@@ -143,8 +143,8 @@ class DetailApi(APIView):
 
     def get_objects(self, filename):
         try:
-            return VersionInfo.objects.filter(filename=filename)
-        except VersionInfo.DoesNotExist:
+            return SectionInfo.objects.filter(filename=filename)
+        except SectionInfo.DoesNotExist:
             return Http404
 
     def get(self, request, filename, format=None):

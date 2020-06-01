@@ -15,7 +15,7 @@ migrate: ## apply any database migrations
 	python manage.py migrate
 
 dumpdata: ## dump data to fixture
-	python manage.py dumpdata --indent 2 las_util.versioninfo > las_util/fixtures/version_info_data.json
+	python manage.py dumpdata --indent 2 las_util.sectioninfo > las_util/fixtures/section_info_data.json
 
 loadtestdata:
 	python manage.py loaddata las
@@ -23,13 +23,13 @@ loadtestdata:
 test: ## Run las_util test suite
 	# python manage.py test las_util
 	# python -Wa manage.py test las_util
-	python -Wignore::DeprecationWarning:distutils.* manage.py test las_util
+	python -Wignore::DeprecationWarning:distutils.* manage.py test las_util -v 2
 
 testmodels: ## Run las_util model tests
-	python manage.py test las_util.tests.test_models
+	python manage.py test las_util.tests.test_models -v 2
 
 testviews: ## Run las_util route tests
-	python manage.py test las_util.tests.test_views
+	python manage.py test las_util.tests.test_views -v 2
 
 coverage: ## Run coverage report: see local .coveragerc for settings
 	# coverage run --source=las_util manage.py test las_util

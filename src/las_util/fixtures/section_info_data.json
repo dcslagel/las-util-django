@@ -1,0 +1,266 @@
+[
+{
+  "model": "las_util.sectioninfo",
+  "pk": 1,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~VERSION INFORMATION",
+    "name": "VERS",
+    "unit": "",
+    "value": "2.0",
+    "note": "CWLS LOG ASCII STANDARD -VERSION 2.0"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 2,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~VERSION INFORMATION",
+    "name": "WRAP",
+    "unit": "",
+    "value": "NO",
+    "note": "ONE LINE PER DEPTH STEP"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 3,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "STRT",
+    "unit": "M",
+    "value": "1670.0000",
+    "note": "START DEPTH"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 4,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "STOP",
+    "unit": "M",
+    "value": "1660.0000",
+    "note": "STOP DEPTH"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 5,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "STEP",
+    "unit": "M",
+    "value": "-0.1250",
+    "note": "STEP"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 6,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "NULL",
+    "unit": "",
+    "value": "-999.25",
+    "note": "NULL VALUE"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 7,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "COMP",
+    "unit": "",
+    "value": "ANY OIL COMPANY INC.",
+    "note": "COMPANY"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 8,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "WELL",
+    "unit": "",
+    "value": "AAAAA_2",
+    "note": "WELL"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 9,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "FLD",
+    "unit": "",
+    "value": "WILDCAT",
+    "note": "FIELD"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 10,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "LOC",
+    "unit": "",
+    "value": "12-34-12-34W5M",
+    "note": "LOCATION"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 11,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "PROV",
+    "unit": "",
+    "value": "ALBERTA",
+    "note": "PROVINCE"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 12,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "SRVC",
+    "unit": "",
+    "value": "ANY LOGGING COMPANY INC.",
+    "note": "SERVICE COMPANY"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 13,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "DATE",
+    "unit": "",
+    "value": "13-DEC-86",
+    "note": "LOG DATE"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 14,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~WELL INFORMATION",
+    "name": "UWI",
+    "unit": "",
+    "value": "100123401234W500",
+    "note": "UNIQUE WELL ID"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 15,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~CURVE INFORMATION",
+    "name": "DEPT",
+    "unit": "M",
+    "value": "",
+    "note": "1  DEPTH"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 16,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~CURVE INFORMATION",
+    "name": "DT",
+    "unit": "US/M",
+    "value": "60 520 32 00",
+    "note": "2  SONIC TRANSIT TIME"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 17,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~CURVE INFORMATION",
+    "name": "RHOB",
+    "unit": "K/M3",
+    "value": "45 350 01 00",
+    "note": "3  BULK DENSITY"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 18,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~CURVE INFORMATION",
+    "name": "NPHI",
+    "unit": "V/V",
+    "value": "42 890 00 00",
+    "note": "4  NEUTRON POROSITY"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 19,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~CURVE INFORMATION",
+    "name": "SFLU",
+    "unit": "OHMM",
+    "value": "07 220 04 00",
+    "note": "5  SHALLOW RESISTIVITY"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 20,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~CURVE INFORMATION",
+    "name": "SFLA",
+    "unit": "OHMM",
+    "value": "07 222 01 00",
+    "note": "6  SHALLOW RESISTIVITY"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 21,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~CURVE INFORMATION",
+    "name": "ILM",
+    "unit": "OHMM",
+    "value": "07 120 44 00",
+    "note": "7  MEDIUM RESISTIVITY"
+  }
+},
+{
+  "model": "las_util.sectioninfo",
+  "pk": 22,
+  "fields": {
+    "filename": "las_file-2020-06-01-18-40-26.las",
+    "section": "~CURVE INFORMATION",
+    "name": "ILD",
+    "unit": "OHMM",
+    "value": "07 120 46 00",
+    "note": "8  DEEP RESISTIVITY"
+  }
+}
+]

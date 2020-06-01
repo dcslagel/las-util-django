@@ -9,7 +9,7 @@ License-Identifier: BSD-3-Clause
 import io
 import re
 from datetime import datetime
-from .models import VersionInfo
+from .models import SectionInfo
 
 
 def parse(las_file):
@@ -23,7 +23,7 @@ def parse(las_file):
     entry_date = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
     entry_filename = 'las_file-' + entry_date + '.las'
 
-    entry = VersionInfo()
+    entry = SectionInfo()
     entry.filename = entry_filename
     section = ''
 
@@ -64,7 +64,7 @@ def parse(las_file):
         entry.save()
 
         # Initialize next entry
-        entry = VersionInfo()
+        entry = SectionInfo()
         entry.filename = entry_filename
 
     return entry_filename
