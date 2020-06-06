@@ -28,7 +28,7 @@ https://www.cwls.org/products/
 - Unit testing with data fixtures.
 - Test coverage reporting.
 
-It has been tested with Django versions 3.0.6 and 2.2.10.
+It has been tested with Django versions 3.0.7 and 2.2.10.
 
 The default database is sqlite.
 
@@ -162,13 +162,30 @@ curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42
 ```
 
 
+PROJECT ROADMAP
+--------------
+
+
+`LAS-Util-Django`'s project road-map is managed in github milestones at: 
+- https://github.com/dcslagel/las-util-django/milestones
+
+The current work-in-progress milestone is v0.1.1:
+- https://github.com/dcslagel/las-util-django/milestone/3
+- Goal: Complete parsing of standard meta-data headers not including ~ASCII (data section)
+
+
+To request and discuss a potiential feature or report a bug create an issue at:
+- https://github.com/dcslagel/las-util-django/issues
+     
+
+
 DEPENDENCIES
 ------------
 
 | Component | Version |
 |-----------|---------|
 | coverage              | 5.1  | 
-| Django                | 3.0.6 | 
+| Django                | 3.0.7 | 
 | Django-Rest-Framework | 3.11.0 | 
 | Pytz                  | 2020.1 | 
 | Sqlite3               | |
@@ -189,4 +206,4 @@ BUGS
 COPYRIGHT
 ------
 
-Copyright (c) 2019 - 2020 DC Slagel
+Copyright (c) 2019 - 2020 DC Slagel and contributors
