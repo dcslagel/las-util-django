@@ -3,6 +3,16 @@ NAME
 
 LAS Util - LAS web tools in Python/Django
 
+TABLE OF CONTENTS
+-----------------
+- [DESCRIPTION](#DESCRIPTION)
+- [SYNOPSIS](#SYNOPSIS)
+- [REST-API](#REST-API)
+- [PROJECT-ROADMAP](#PROJECT-ROADMAP)
+- [DEPENDENCIES](#DEPENDENCIES)
+- [BUGS](#BUGS)
+- [COPYRIGHT](#COPYRIGHT)
+
 
 DESCRIPTION
 -----------
@@ -18,8 +28,10 @@ the Canadian Well Logging Society at
 https://www.cwls.org/products/
 
 `LAS-Util-Django` current functionality:
-- Upload a LAS file that includes only the VERSION and WELL sections.
-- Parse the VERSION and WELL sections.
+- Upload a LAS file that includes the VERSION and optionally: WELL, CURVE
+  and PARAMETER sections.
+- Parse the VERSION section.
+- Parse the WELL, CURVE and PARAMETER sections if they exist.
 - Store the parsed data in a SQLite database.
 - Display a list of processed files with links to their details.
 - Display detailed data in a table format.
@@ -32,17 +44,9 @@ It has been tested with Django versions 3.0.7 and 2.2.10.
 
 The default database is sqlite.
 
-Future versions will implement:
-- Parse the PARAMETER section.
-- Add test for file upload.
-- Update interface for multiple device formats.
-- Update packaging to include a reusable-app that can be installed at other
-  Django sites.
-
-
 
 SYNOPSIS
---------
+---------
 
   ```bash
   # Setup:
@@ -117,7 +121,8 @@ Select the 'Display-Files' menu item. The uploaded file will have the most recen
   The resulting data files will be displayed at:  
   http://127.0.0.1:8000/list/
 
-REST API
+
+REST-API
 --------
 
 To upload a LAS doc use a post command:
@@ -162,14 +167,13 @@ curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42
 ```
 
 
-PROJECT ROADMAP
---------------
-
+PROJECT-ROADMAP
+----------------
 
 `LAS-Util-Django`'s project road-map is managed in github milestones at: 
 - https://github.com/dcslagel/las-util-django/milestones
 
-The current work-in-progress milestone is v0.1.1:
+The current work-in-progress milestone is 0.1.1:
 - https://github.com/dcslagel/las-util-django/milestone/3
 - Goal: Complete parsing of standard meta-data headers not including ~ASCII (data section)
 
@@ -204,6 +208,6 @@ BUGS
   https://github.com/dcslagel/las-util-django/issues
 
 COPYRIGHT
-------
+---------
 
-Copyright (c) 2019 - 2020 DC Slagel and contributors
+Copyright (c) 2019 DC Slagel and contributors
