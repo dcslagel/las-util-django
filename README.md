@@ -3,18 +3,18 @@ NAME
 
 LAS Util - LAS web tools in Python/Django
 
-TABLE OF CONTENTS
+TABLE-OF-CONTENTS
 -----------------
-- [DESCRIPTION](#DESCRIPTION)
-- [SYNOPSIS](#SYNOPSIS)
-- [REST-API](#REST-API)
-- [PROJECT-ROADMAP](#PROJECT-ROADMAP)
-- [DEPENDENCIES](#DEPENDENCIES)
-- [BUGS](#BUGS)
-- [COPYRIGHT](#COPYRIGHT)
+- [DESCRIPTION](#description)
+- [SYNOPSIS](#synopsis)
+- [REST-API](#rest-api)
+- [PROJECT-ROADMAP](#project-roadmap)
+- [DEPENDENCIES](#dependencies)
+- [BUGS](#bugs)
+- [COPYRIGHT](#copyright)
 
 
-DESCRIPTION
+[DESCRIPTION](#name)
 -----------
 Caution: This is beta software!
 
@@ -28,10 +28,10 @@ the Canadian Well Logging Society at
 https://www.cwls.org/products/
 
 `LAS-Util-Django` current functionality:
-- Upload a LAS file that includes the VERSION and optionally: WELL, CURVE
-  and PARAMETER sections.
+- Upload a LAS file that includes the VERSION and optionally: WELL, CURVE,
+  PARAMETER and optional OTHER sections.
 - Parse the VERSION section.
-- Parse the WELL, CURVE and PARAMETER sections if they exist.
+- Parse the WELL, CURVE, PARAMETER and OTHER sections if they exist.
 - Store the parsed data in a SQLite database.
 - Display a list of processed files with links to their details.
 - Display detailed data in a table format.
@@ -40,12 +40,12 @@ https://www.cwls.org/products/
 - Unit testing with data fixtures.
 - Test coverage reporting.
 
-It has been tested with Django versions 3.0.7 and 2.2.10.
+It has been tested with Django versions 3.0.7.
 
 The default database is sqlite.
 
 
-SYNOPSIS
+[SYNOPSIS](#name)
 ---------
 
   ```bash
@@ -122,7 +122,7 @@ Select the 'Display-Files' menu item. The uploaded file will have the most recen
   http://127.0.0.1:8000/list/
 
 
-REST-API
+[REST-API](#name)
 --------
 
 To upload a LAS doc use a post command:
@@ -167,7 +167,7 @@ curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42
 ```
 
 
-PROJECT-ROADMAP
+[PROJECT-ROADMAP](#name)
 ----------------
 
 `LAS-Util-Django`'s project road-map is managed in github milestones at: 
@@ -183,7 +183,7 @@ To request and discuss a potiential feature or report a bug create an issue at:
      
 
 
-DEPENDENCIES
+[DEPENDENCIES](#name)
 ------------
 
 | Component | Version |
@@ -200,14 +200,14 @@ cd las-util-django/
 pip install -r requirements.txt
 ```
 
-BUGS
+[BUGS](#name)
 ----
 
 - Functionality is basic.
 - Report bugs by creating an issue at:    
   https://github.com/dcslagel/las-util-django/issues
 
-COPYRIGHT
+[COPYRIGHT](#name)
 ---------
 
 Copyright (c) 2019 DC Slagel and contributors
