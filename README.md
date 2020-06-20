@@ -6,10 +6,11 @@ LAS Util - LAS web tools in Python/Django
 TABLE-OF-CONTENTS
 -----------------
 - [DESCRIPTION](#description)
+- [DEPENDENCIES](#dependencies)
 - [SYNOPSIS](#synopsis)
 - [REST-API](#rest-api)
 - [PROJECT-ROADMAP](#project-roadmap)
-- [DEPENDENCIES](#dependencies)
+- [FEATURE-REQUEST](#feature-request)
 - [BUGS](#bugs)
 - [COPYRIGHT](#copyright)
 
@@ -20,8 +21,8 @@ Caution: This is beta software!
 
 LAS (Log Ascii Standard - Version 2.0) web utilities in Python/Django.
 
-The current version is a stand-alone Django site/app combination that runs on
-a Django development server.
+The current version of LAS-Util is a stand-alone Django site/app combination
+that runs on a Django development server.
 
 LAS well log file format versions are written and maintained by    
 the Canadian Well Logging Society at      
@@ -30,10 +31,10 @@ https://www.cwls.org/products/
 `LAS-Util-Django` current functionality:
 - Upload a LAS file that includes the VERSION and optionally: WELL, CURVE,
   PARAMETER and optional OTHER sections.
-- Parse the VERSION section.
-- Parse the WELL, CURVE, PARAMETER and OTHER sections if they exist.
+- Parse the VERSION, WELL, CURVE, PARAMETER and OTHER sections.
 - Store the parsed data in a SQLite database.
 - Display a list of processed files with links to their details.
+  Note: Currently LAS-Util renames the uploaded files to `las_file-[datetime]`
 - Display detailed data in a table format.
 - Provide api for listing uploaded LAS docs and details.
 - Provide api for uploading LAS docs.
@@ -44,6 +45,22 @@ It has been tested with Django versions 3.0.7.
 
 The default database is sqlite.
 
+[DEPENDENCIES](#name)
+------------
+
+| Component | Version |
+|-----------|---------|
+| coverage              | 5.1 |
+| Django                | 3.0.7 |
+| Django-Rest-Framework | 3.11.0 |
+| Pytz                  | 2020.1 |
+| Sqlite3               | 3.24.0 |
+
+Django and Django-Rest-Framework can be installed with
+```
+cd las-util-django/
+pip install -r requirements.txt
+```
 
 [SYNOPSIS](#name)
 ---------
@@ -71,14 +88,14 @@ The default database is sqlite.
   ###   Example download cmds:
   ###     Note: Even though these paths say 'archive' rather than 'release' it looks like we
   ###           still need to go to the release url to find these paths.
-  curl -L https://github.com/dcslagel/las-util-django/archive/v0.1.0tar.gz -o v0.1.0.tar.gz
+  curl -L https://github.com/dcslagel/las-util-django/archive/v0.1.1tar.gz -o v0.1.1.tar.gz
   ### or
-  wget https://github.com/dcslagel/las-util-django/archive/v0.1.0.tar.gz
+  wget https://github.com/dcslagel/las-util-django/archive/v0.1.1.tar.gz
 
   ###  Unpack release package with
-  unzip v0.1.0.zip 
+  unzip v0.1.1.zip
   ### or (your tar cmd may require different flags).
-  tar -xvf v0.1.0.tar.gz
+  tar -xvf v0.1.1.tar.gz
 
 
   ## 4. Install python/django dependencies.
@@ -173,32 +190,18 @@ curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42
 `LAS-Util-Django`'s project road-map is managed in github milestones at: 
 - https://github.com/dcslagel/las-util-django/milestones
 
-The current work-in-progress milestone is 0.1.1:
-- https://github.com/dcslagel/las-util-django/milestone/3
-- Goal: Complete parsing of standard meta-data headers not including ~ASCII (data section)
+The current work-in-progress milestone is 0.1.2:
+- https://github.com/dcslagel/las-util-django/milestone/5
+- Goals:
+  - Improve user interface particularly related to the 'Display Files' menu section.
+  - Initial iteration toward responsive multiple device formats display.
 
 
-To request and discuss a potiential feature or report a bug create an issue at:
+[FEATURE-REQUEST](#name)
+----------------
+To request and discuss a potiential feature create an issue at:
 - https://github.com/dcslagel/las-util-django/issues
-     
 
-
-[DEPENDENCIES](#name)
-------------
-
-| Component | Version |
-|-----------|---------|
-| coverage              | 5.1  | 
-| Django                | 3.0.7 | 
-| Django-Rest-Framework | 3.11.0 | 
-| Pytz                  | 2020.1 | 
-| Sqlite3               | |
-
-Django and Django-Rest-Framework can be installed with
-```
-cd las-util-django/
-pip install -r requirements.txt
-```
 
 [BUGS](#name)
 ----
