@@ -1,10 +1,33 @@
 :root {
-  font-size: 1em;
+  font-size: 0.75em;
+}
+
+@media (min-width: 800px) {
+  :root {
+    font-size: 0.875em;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    font-size: 1.5em;
+  }
 }
 
 body {
   font-family: sans-serif;
   background: #eee;
+}
+
+header {
+  margin-top: .25em;
+  margin-bottom: .6em;
 }
 
 nav a {
@@ -20,10 +43,6 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 
-h1 {
-  border-bottom: 2px solid #eee;
-}
-
 h2 {
   font-size: 1.2em;
   padding: 0.8em;
@@ -35,25 +54,28 @@ hr {
 
 footer {
   width: 100%;
-  padding: 1.25em;
-  /* background-color: #1BA1E2; */
-  margin: 0 auto;
+  padding: 1em;
   text-align: center;
   font-size: 0.625em;
+  background-color: #eee;
   /* Pin footer to the bottom of the screen */
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 
 nav {
+  margin-top: 0;
+  margin-bottom: 0;
   border-bottom: 0.1em solid #eee;
-} 
+}
 
 table {
   width: 100%;
-  padding: 1.25em;
-  border: 4px solid #ccc;
+  padding: 0;
+  border: 2px solid #ccc;
   background-color: #eee;
+  -webkit-border-horizontal-spacing: 1px;
+  -webkit-border-vertical-spacing: 1px;
 }
 
 th {
@@ -62,8 +84,10 @@ th {
   text-align: left;
 }
 
+
 /* ul and li padding and display control menu display */
 ul {
+  margin: auto;
   padding-left: 0em;
   background-color: #eee;
 }
@@ -73,39 +97,80 @@ li {
   padding: 0.3em 0.6em;
 }
 
+caption {
+  padding: 0.5em 0.4em 0.4em 0.4em;
+  border: 2px solid #ccc;
+  border-bottom: 0px solid #ccc;
+  color: white;
+  background-color: #377BA1;
+  font-size: 1.5em; /* Fallback if vw is not available */
+  font-size: 2.5vw;
+}
 
 .page {
-  margin: 2em auto;
+  margin: auto;
   /* firefox doesn't like this stmt, maybe not needed */
   /* width: 30vm; */
+  padding: 0.4em;
   border: 5px solid #ccc;
-  padding: 0.8em;
   background: white;
+  display: block;
  }
 
 .display-data tr {
   background-color: #ccc;
 }
 
+/* table striping */
+.display-data tr:nth-of-type(odd) {
+  background: #ddd;
+}
+
 .doc-detail {
-  font-size: 0.65em;
+  font-size: 0.3em; /* Fallback if vw is not available */
+  font-size: 2vw;
 }
 
+@media (min-width: 570px) {
+  .doc-detail {
+    font-size: 0.65em;
+  }
+}
+
+@media (min-width: 800px) {
+  .doc-detail {
+    font-size: .7em;
+  }
+}
+
+/* Maybe not used 2020-10-04
 .form {
-  margin: 0em;
+  margin: 2.5em;
+  padding: 2.5em;
   border: 1px solid #ccc;
-  padding: 2em;
 }
-
-.form-centered {
-  text-align: center;
-  margin: 0em;
-  border: 1px solid #ccc;
-  padding: 2em;
-}
+*/ 
 
 .error {
   background: #F0D6D6;
   padding: 0.5em;
 }
 
+.uploadform {
+  margin: auto;
+  padding: 2em;
+  padding-top: 1.5em;
+  border: 1px solid #eee;
+  text-align: center;
+}
+
+.message {
+  min-height: 12.5px;
+  padding: .1em;
+  text-align: center;
+  background-color: #eee;
+}
+
+.message:after {
+  content: '\200b'; /* zero width space character */
+}
