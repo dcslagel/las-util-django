@@ -169,6 +169,7 @@ caption {
   padding: .1em;
   text-align: center;
   background-color: #eee;
+  border: 1px solid #ccc;
 }
 
 .message:after {

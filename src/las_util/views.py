@@ -8,8 +8,9 @@ License-Identifier: BSD-3-Clause
 """
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse
 from django.http import Http404
+from django.utils.html import format_html
+from django.urls import reverse
 
 # imports for rest api
 from rest_framework import generics, status
@@ -43,13 +44,23 @@ def home(request):
     return render(request, 'las_util/home.html', context)
 
 def upload(request):
+    message = 'Choose file to upload'
+
     """Main page for uploading las files"""
     if request.method == 'POST':
         inform = UploadForm(request.POST, request.FILES)
         if inform.is_valid():
-            parse(request.FILES['filename'])
-            # Redirect to the data display
-            return HttpResponseRedirect(reverse('home'))
+            stored_filename = parse(request.FILES['filename'])
+            # Example uploaded file path
+            # http://127.0.0.1:8000/detail/las_file-2020-10-15-13-52-56.las
+            msg_template = 'Upload file as: <a href="/detail/{}">{}</a>'
+            message = format_html(msg_template.format(
+                stored_filename,
+                stored_filename
+            ))
+        else:
+            message = 'Failed to upload file. Retry.'
+            inform = UploadForm()
     else:
         inform = UploadForm()
 
@@ -59,7 +70,8 @@ def upload(request):
     context = {
         'form': inform,
         'infiles': infileslist,
-        'version_section': version_section
+        'version_section': version_section,
+        'message' : message 
     }
 
     return render(request, 'las_util/upload.html', context)
