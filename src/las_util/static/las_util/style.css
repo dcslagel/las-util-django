@@ -72,10 +72,6 @@ nav {
 table {
   width: 100%;
   padding: 0;
-  border: 2px solid #ccc;
-  background-color: #eee;
-  -webkit-border-horizontal-spacing: 1px;
-  -webkit-border-vertical-spacing: 1px;
 }
 
 th {
@@ -124,6 +120,17 @@ caption {
 /* table striping */
 .display-data tr:nth-of-type(odd) {
   background: #ddd;
+}
+
+.doc-list {
+  border: 2px solid #ccc;
+  height: calc(100vh - 160px);
+  # height: 80vh;
+  overflow-y: auto;
+  # border: 2px solid #ccc;
+  background-color: #eee;
+  -webkit-border-horizontal-spacing: 1px;
+  -webkit-border-vertical-spacing: 1px;
 }
 
 .doc-detail {
