@@ -35,7 +35,8 @@ nav a {
 }
 
 a, h1, h2, h3 {
-  color: #377BA8;
+  /* color: #377BA8; */
+  color: #2e6a91; /* a darkish blue */
 }
 
 h1, h2, h3, h4 {
@@ -71,7 +72,7 @@ nav {
 
 table {
   width: 100%;
-  padding: 0;
+  padding: 1em;
 }
 
 th {
@@ -124,13 +125,27 @@ caption {
 
 .doc-list {
   border: 2px solid #ccc;
-  height: calc(100vh - 160px);
-  # height: 80vh;
+  height: calc(95vh - 140px);
   overflow-y: auto;
   # border: 2px solid #ccc;
   background-color: #eee;
-  -webkit-border-horizontal-spacing: 1px;
-  -webkit-border-vertical-spacing: 1px;
+}
+
+/* Configure the table withing .doc-list to be a proportion of the doc-list
+ * size */
+.doc-list table {
+  height: 60%;
+}
+
+@media (orientation: landscape) {
+  .doc-list {
+    height: calc(95vh - 175px);
+  }
+
+@media (min-height: 1100px) {
+  .doc-list {
+    height: calc(95vh - 245px);
+  }
 }
 
 .doc-detail {
