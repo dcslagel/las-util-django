@@ -71,8 +71,10 @@ nav {
 }
 
 table {
-  width: 100%;
-  padding: 1em;
+  width: auto;
+  height: calc(100vh - 170px);
+  display: block;
+  overflow: auto;
 }
 
 th {
@@ -151,6 +153,7 @@ caption {
 .doc-detail {
   font-size: 0.3em; /* Fallback if vw is not available */
   font-size: 2vw;
+  font-size: .125em;
 }
 
 @media (min-width: 570px) {
