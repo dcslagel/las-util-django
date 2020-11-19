@@ -6,14 +6,14 @@
 {% block body %}
 <h2>LAS-Util File List</h2>
 <div class="doc-list">
-<table>
-  <tbody>
+<ul>
     {% for doc in docs %}
+    <li>
     <tr>
       <td><a href=/detail/{{ doc.filename }}>{{ doc.filename }}</a></td>
     </tr>
+    </li>
     {% endfor %}
-  </tbody>
-</table>
+</ul>
 </div>
 {% endblock %}

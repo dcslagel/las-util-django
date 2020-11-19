@@ -148,27 +148,26 @@ td:empty:after {
 
 .page {
   margin: auto;
-  /* firefox doesn't like this stmt, maybe not needed */
-  /* width: 30vm; */
   padding: 0.4em;
   border: 5px solid #ccc;
   background: white;
-  display: block;
  }
 
 
 .doc-list {
-  border: 2px solid #ccc;
   height: calc(95vh - 140px);
   overflow-y: auto;
-  # border: 2px solid #ccc;
+  border: 2px solid #ccc;
   background-color: #eee;
 }
 
 .doc-detail {
-  font-size: 0.3em; /* Fallback if vw is not available */
-  font-size: 2vw;
-  font-size: .125em;
+  font-size: 0.2em; /* Fallback if vw is not available */
+}
+
+.display-data {
+  height: calc(95vh - 140px);
+  overflow-y: auto;
 }
 
 .error {
@@ -211,17 +210,12 @@ td:empty:after {
 /* || Media rules for larger device settings */
 
 
-@media (min-width: 750px) {
+@media (min-width: 600px) {
   :root {
     font-size: 0.875em;
   }
   .doc-detail {
-    font-size: 1.5em;
-  }
-  table {
-    height: calc(100vh - 15em);
-    display: table;
-    overflow: auto;
+    font-size: 1em;
   }
 
   table, thead, tbody, th, td, tr {
@@ -235,9 +229,18 @@ td:empty:after {
   td:nth-of-type(2):before { content: ""; }
   td:nth-of-type(3):before { content: ""; }
   td:nth-of-type(4):before { content: ""; }
-  td:nth-of-type(5):before { content: "";}
-  td:nth-of-type(6):before { content: "";}
+  td:nth-of-type(5):before { content: ""; }
+  td:nth-of-type(6):before { content: ""; }
 
+}
+
+@media (orientation: landscape) {
+  .doc-list {
+    height: calc(100vh - 14em);
+  }
+  .doc-detail {
+    font-size: 0.2em;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -252,14 +255,6 @@ td:empty:after {
   }
 }
 
-@media (orientation: landscape) {
-  .doc-list {
-    height: calc(95vh - 175px);
-  }
-  .doc-detail {
-    font-size: .9em;
-  }
-}
 
 @media (min-height: 1100px) {
   .doc-list {
