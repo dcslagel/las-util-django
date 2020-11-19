@@ -78,18 +78,73 @@ footer {
   bottom: 0;
 }
 
-table {
-  width: auto;
-  height: calc(100vh - 15em);
-  display: block;
-  overflow: auto;
-}
-
+/* || Mobile first table */
 th {
   color: #eee;
   background-color: #377BA8;
   text-align: left;
 }
+
+table {
+  width: 100%;
+  font-size: .75em;
+}
+table, thead, tbody, th, td, tr {
+  display: block;
+}
+
+thead tr {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+tr { border: 1px solid; }
+
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+
+td {
+	border: none;
+	position: relative;
+
+  /* Push cell data to the left to
+   * make room for 'header' in 'td:before'
+   */
+	margin-left: 5em;
+}
+
+td:before {
+	position: absolute;
+	left: 6px;
+	white-space: nowrap;
+  /* Pull this header back from td's 150px margin
+   * so that this header is visible in at the left
+   */
+	margin-left: -5em;
+}
+
+td:nth-of-type(1):before { content: "FileName"; }
+td:nth-of-type(2):before { content: "Section"; }
+td:nth-of-type(3):before { content: "Name"; }
+td:nth-of-type(4):before { content: "Unit"; }
+td:nth-of-type(5):before { content: "Value";}
+td:nth-of-type(6):before { content: "Note";}
+
+/*
+ * Handle empty cells
+ * Reference: https://stackoverflow.com/q/2789372
+ */
+td:empty:after {
+  content: '.';
+  color: transparent;
+  visibility: hidden;
+}
+
+
+/* || Mobile first classes */
 
 .page {
   margin: auto;
@@ -152,13 +207,6 @@ th {
   background: #ddd;
 }
 
-/* Maybe not used 2020-10-04
-.form {
-  margin: 2.5em;
-  padding: 2.5em;
-  border: 1px solid #ccc;
-}
-*/ 
 
 /* || Media rules for larger device settings */
 
@@ -170,6 +218,26 @@ th {
   .doc-detail {
     font-size: 1.5em;
   }
+  table {
+    height: calc(100vh - 15em);
+    display: table;
+    overflow: auto;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: revert;
+  }
+
+  thead tr {
+    position: revert;
+  }
+  td:nth-of-type(1):before { content: ""; }
+  td:nth-of-type(2):before { content: ""; }
+  td:nth-of-type(3):before { content: ""; }
+  td:nth-of-type(4):before { content: ""; }
+  td:nth-of-type(5):before { content: "";}
+  td:nth-of-type(6):before { content: "";}
+
 }
 
 @media (min-width: 1200px) {
