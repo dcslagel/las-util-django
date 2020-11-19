@@ -1,37 +1,12 @@
+/* || Mobile first base rules */
+
 :root {
-  font-size: 0.75em;
-}
-
-@media (min-width: 800px) {
-  :root {
-    font-size: 0.875em;
-  }
-}
-
-@media (min-width: 1200px) {
-  :root {
-    font-size: 1em;
-  }
-}
-
-@media (min-width: 1400px) {
-  :root {
-    font-size: 1.5em;
-  }
+  font-size: 0.7em;
 }
 
 body {
   font-family: sans-serif;
   background: #eee;
-}
-
-header {
-  margin-top: .25em;
-  margin-bottom: .6em;
-}
-
-nav a {
-  text-decoration: none;
 }
 
 a, h1, h2, h3 {
@@ -52,37 +27,6 @@ h2 {
 hr {
   color: #eee; /* light gray */
 }
-
-footer {
-  width: 100%;
-  padding: 1em;
-  text-align: center;
-  font-size: 0.625em;
-  background-color: #eee;
-  /* Pin footer to the bottom of the screen */
-  position: fixed;
-  bottom: 0;
-}
-
-nav {
-  margin-top: 0;
-  margin-bottom: 0;
-  border-bottom: 0.1em solid #eee;
-}
-
-table {
-  width: auto;
-  height: calc(100vh - 170px);
-  display: block;
-  overflow: auto;
-}
-
-th {
-  color: #eee;
-  background-color: #377BA8;
-  text-align: left;
-}
-
 
 /* ul and li padding and display control menu display */
 ul {
@@ -106,6 +50,47 @@ caption {
   font-size: 2.5vw;
 }
 
+/* || Mobile first layout rules */
+
+header {
+  margin-top: .25em;
+  margin-bottom: .6em;
+}
+
+nav {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-bottom: 0.1em solid #eee;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+footer {
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+  font-size: 0.625em;
+  background-color: #eee;
+  /* Pin footer to the bottom of the screen */
+  position: fixed;
+  bottom: 0;
+}
+
+table {
+  width: auto;
+  height: calc(100vh - 15em);
+  display: block;
+  overflow: auto;
+}
+
+th {
+  color: #eee;
+  background-color: #377BA8;
+  text-align: left;
+}
+
 .page {
   margin: auto;
   /* firefox doesn't like this stmt, maybe not needed */
@@ -116,14 +101,6 @@ caption {
   display: block;
  }
 
-.display-data tr {
-  background-color: #ccc;
-}
-
-/* table striping */
-.display-data tr:nth-of-type(odd) {
-  background: #ddd;
-}
 
 .doc-list {
   border: 2px solid #ccc;
@@ -133,48 +110,11 @@ caption {
   background-color: #eee;
 }
 
-/* Configure the table withing .doc-list to be a proportion of the doc-list
- * size */
-.doc-list table {
-  height: 60%;
-}
-
-@media (orientation: landscape) {
-  .doc-list {
-    height: calc(95vh - 175px);
-  }
-
-@media (min-height: 1100px) {
-  .doc-list {
-    height: calc(95vh - 245px);
-  }
-}
-
 .doc-detail {
   font-size: 0.3em; /* Fallback if vw is not available */
   font-size: 2vw;
   font-size: .125em;
 }
-
-@media (min-width: 570px) {
-  .doc-detail {
-    font-size: 0.65em;
-  }
-}
-
-@media (min-width: 800px) {
-  .doc-detail {
-    font-size: .7em;
-  }
-}
-
-/* Maybe not used 2020-10-04
-.form {
-  margin: 2.5em;
-  padding: 2.5em;
-  border: 1px solid #ccc;
-}
-*/ 
 
 .error {
   background: #F0D6D6;
@@ -200,3 +140,63 @@ caption {
 .message:after {
   content: '\200b'; /* zero width space character */
 }
+
+/* || Mobile first Theme(color) rules */
+
+.display-data tr {
+  background-color: #ccc;
+}
+
+/* table striping */
+.display-data tr:nth-of-type(odd) {
+  background: #ddd;
+}
+
+/* Maybe not used 2020-10-04
+.form {
+  margin: 2.5em;
+  padding: 2.5em;
+  border: 1px solid #ccc;
+}
+*/ 
+
+/* || Media rules for larger device settings */
+
+
+@media (min-width: 750px) {
+  :root {
+    font-size: 0.875em;
+  }
+  .doc-detail {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    font-size: 1.5em;
+  }
+}
+
+@media (orientation: landscape) {
+  .doc-list {
+    height: calc(95vh - 175px);
+  }
+  .doc-detail {
+    font-size: .9em;
+  }
+}
+
+@media (min-height: 1100px) {
+  .doc-list {
+    height: calc(95vh - 245px);
+  }
+}
+
+
