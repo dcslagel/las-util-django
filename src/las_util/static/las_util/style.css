@@ -6,12 +6,14 @@
 
 body {
   font-family: sans-serif;
-  background: #eee;
-}
+  margin: auto;
+  margin: 0;
+  padding: 0.4em;
+  background-color: silver;
+ }
 
 a, h1, h2, h3 {
-  /* color: #377BA8; */
-  color: #2e6a91; /* a darkish blue */
+  color: #006b82;
 }
 
 h1, h2, h3, h4 {
@@ -20,7 +22,7 @@ h1, h2, h3, h4 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   padding: 0.8em;
 }
 
@@ -44,10 +46,10 @@ caption {
   padding: 0.5em 0.4em 0.4em 0.4em;
   border: 2px solid #ccc;
   border-bottom: 0px solid #ccc;
+  font-size: 1.5rem; /* Fallback if vw is not available */
+  font-size: 2.5vw;
   color: white;
   background-color: #377BA1;
-  font-size: 1.5em; /* Fallback if vw is not available */
-  font-size: 2.5vw;
 }
 
 /* || Mobile first layout rules */
@@ -58,9 +60,7 @@ header {
 }
 
 nav {
-  margin-top: 0;
-  margin-bottom: 0;
-  border-bottom: 0.1em solid #eee;
+  text-align: center;
 }
 
 nav a {
@@ -71,25 +71,29 @@ footer {
   width: 100%;
   padding: 1em;
   text-align: center;
-  font-size: 0.625em;
-  background-color: #eee;
+  font-size: 0.625rem;
   /* Pin footer to the bottom of the screen */
   position: fixed;
   bottom: 0;
+  left: 0;
+  color: #015466;
+  background-color: silver;
 }
 
 /* || Mobile first table */
 th {
-  color: #eee;
-  background-color: #377BA8;
   text-align: left;
+  color: #eee;
+  background-color: #006b82;
 }
 
 table {
   width: 100%;
-  font-size: .75em;
+  margin-bottom: 2.75rem;
 }
+
 table, thead, tbody, th, td, tr {
+  font-size: .75rem;
   display: block;
 }
 
@@ -102,7 +106,7 @@ thead tr {
 tr { border: 1px solid; }
 
 tr:nth-of-type(odd) {
-  background: #eee;
+  background-color: #eee;
 }
 
 
@@ -146,13 +150,6 @@ td:empty:after {
 
 /* || Mobile first classes */
 
-.page {
-  margin: auto;
-  padding: 0.4em;
-  border: 5px solid #ccc;
-  background: white;
- }
-
 
 .doc-list {
   height: calc(95vh - 140px);
@@ -162,7 +159,7 @@ td:empty:after {
 }
 
 .doc-detail {
-  font-size: 0.2em; /* Fallback if vw is not available */
+  font-size: 0.2rem; /* Fallback if vw is not available */
 }
 
 .display-data {
@@ -171,8 +168,8 @@ td:empty:after {
 }
 
 .error {
-  background: #F0D6D6;
   padding: 0.5em;
+  background-color: #F0D6D6;
 }
 
 .uploadform {
@@ -203,7 +200,7 @@ td:empty:after {
 
 /* table striping */
 .display-data tr:nth-of-type(odd) {
-  background: #ddd;
+  background-color: #ddd;
 }
 
 
@@ -212,10 +209,10 @@ td:empty:after {
 
 @media (min-width: 600px) {
   :root {
-    font-size: 0.875em;
+    font-size: 0.875rem;
   }
   .doc-detail {
-    font-size: 1em;
+    font-size: 1rem;
   }
 
   table, thead, tbody, th, td, tr {
@@ -239,7 +236,7 @@ td:empty:after {
     height: calc(100vh - 14em);
   }
   .doc-detail {
-    font-size: 0.2em;
+    font-size: 0.2rem;
   }
 }
 
