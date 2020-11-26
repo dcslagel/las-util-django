@@ -95,8 +95,9 @@ def list(request):
 def detail(request, docName):
     doc = SectionInfo.objects.filter(filename=docName)
 
-    if doc:
-        return render(request, 'las_util/detail_display.html', {'doc': doc})
+    if doc and docName:
+        return render(request, 'las_util/detail_display.html',
+                      {'doc': doc, 'docName': docName})
     else:
         # If there isn't any files then go back to home page
         return HttpResponseRedirect(reverse('home'))

@@ -44,12 +44,12 @@ li {
 
 caption {
   padding: 0.5em 0.4em 0.4em 0.4em;
-  border: 2px solid #ccc;
-  border-bottom: 0px solid #ccc;
-  font-size: 1.5rem; /* Fallback if vw is not available */
-  font-size: 2.5vw;
+  display: block;
+  border: 1px solid black;
+  border-bottom: 0px solid;
+  font-size: 1.5rem;
   color: white;
-  background-color: #377BA1;
+  background-color: #006b82;
 }
 
 /* || Mobile first layout rules */
@@ -69,7 +69,8 @@ nav a {
 
 footer {
   width: 100%;
-  padding: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
   text-align: center;
   font-size: 0.625rem;
   /* Pin footer to the bottom of the screen */
@@ -82,6 +83,7 @@ footer {
 
 /* || Mobile first table */
 th {
+  padding-left: .25em;
   text-align: left;
   color: #eee;
   background-color: #006b82;
@@ -98,9 +100,9 @@ table, thead, tbody, th, td, tr {
 }
 
 thead tr {
-	position: absolute;
-	top: -9999px;
-	left: -9999px;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
 
 tr { border: 1px solid; }
@@ -111,31 +113,31 @@ tr:nth-of-type(odd) {
 
 
 td {
-	border: none;
-	position: relative;
+  border: none;
+  padding-left: .25em;
+  position: relative;
 
   /* Push cell data to the left to
    * make room for 'header' in 'td:before'
    */
-	margin-left: 5em;
+  margin-left: 5em;
 }
 
 td:before {
-	position: absolute;
-	left: 6px;
-	white-space: nowrap;
+  position: absolute;
+  left: 6px;
+  white-space: nowrap;
   /* Pull this header back from td's 150px margin
    * so that this header is visible in at the left
    */
-	margin-left: -5em;
+  margin-left: -5em;
 }
 
-td:nth-of-type(1):before { content: "FileName"; }
-td:nth-of-type(2):before { content: "Section"; }
-td:nth-of-type(3):before { content: "Name"; }
-td:nth-of-type(4):before { content: "Unit"; }
-td:nth-of-type(5):before { content: "Value";}
-td:nth-of-type(6):before { content: "Note";}
+td:nth-of-type(1):before { content: "Section"; }
+td:nth-of-type(2):before { content: "Name"; }
+td:nth-of-type(3):before { content: "Unit"; }
+td:nth-of-type(4):before { content: "Value";}
+td:nth-of-type(5):before { content: "Note";}
 
 /*
  * Handle empty cells
@@ -215,6 +217,11 @@ td:empty:after {
     font-size: 1rem;
   }
 
+  caption {
+    border: revert;
+    display: revert;
+  }
+
   table, thead, tbody, th, td, tr {
     display: revert;
   }
@@ -222,13 +229,12 @@ td:empty:after {
   thead tr {
     position: revert;
   }
+
   td:nth-of-type(1):before { content: ""; }
   td:nth-of-type(2):before { content: ""; }
   td:nth-of-type(3):before { content: ""; }
   td:nth-of-type(4):before { content: ""; }
   td:nth-of-type(5):before { content: ""; }
-  td:nth-of-type(6):before { content: ""; }
-
 }
 
 @media (orientation: landscape) {
@@ -258,5 +264,3 @@ td:empty:after {
     height: calc(95vh - 245px);
   }
 }
-
-

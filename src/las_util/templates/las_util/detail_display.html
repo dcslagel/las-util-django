@@ -5,19 +5,19 @@
 <div>
   <h2>LAS-Util Detail Display</h2>
   <table class="doc-detail">
+    <caption>{{ docName }}</caption>
     <thead>
       <tr>
-        <th>FILENAME</th>
         <th>SECTION</th>
         <th>NAME</th>
         <th>UNIT</th>
         <th>VALUE</th>
         <th>NOTE</th>
+      </tr>
     </thead>
     <tbody class="display-data">
       {% for row in doc %}
       <tr>
-        <td>{{ row.filename }}</td>
         <td>{{ row.section }}</td>
         <td>{{ row.name }}</td>
         <td>{{ row.unit }}</td>
