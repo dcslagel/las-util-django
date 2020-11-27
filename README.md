@@ -40,6 +40,8 @@ https://www.cwls.org/products/
 - Provide api for uploading LAS docs.
 - Unit testing with data fixtures.
 - Test coverage reporting.
+- Responsive display on most devices.
+
 
 It has been tested with Django versions 3.0.7.
 
@@ -88,14 +90,14 @@ pip install -r requirements.txt
   ###   Example download cmds:
   ###     Note: Even though these paths say 'archive' rather than 'release' it looks like we
   ###           still need to go to the release url to find these paths.
-  curl -L https://github.com/dcslagel/las-util-django/archive/v0.1.1tar.gz -o v0.1.1.tar.gz
+  curl -L https://github.com/dcslagel/las-util-django/archive/v0.1.2tar.gz -o v0.1.2.tar.gz
   ### or
-  wget https://github.com/dcslagel/las-util-django/archive/v0.1.1.tar.gz
+  wget https://github.com/dcslagel/las-util-django/archive/v0.1.2.tar.gz
 
   ###  Unpack release package with
-  unzip v0.1.1.zip
+  unzip v0.1.2.zip
   ### or (your tar cmd may require different flags).
-  tar -xvf v0.1.1.tar.gz
+  tar -xvf v0.1.2.tar.gz
 
 
   ## 4. Install python/django dependencies.
@@ -153,7 +155,7 @@ token=$(awk '/.*csrftoken/ {print $7}' cookie.txt)
 
 
 # Notes:
-# In '-F' 'filename' is the name field of: 
+# In '-F' 'filename' is the name field of:
 #   <input type="file" name="filename" required="" id="id_filename">
 
 #--------------------------------------------------------------------
@@ -190,11 +192,10 @@ curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42
 `LAS-Util-Django`'s project road-map is managed in github milestones at: 
 - https://github.com/dcslagel/las-util-django/milestones
 
-The current work-in-progress milestone is 0.1.2:
-- https://github.com/dcslagel/las-util-django/milestone/5
+The current work-in-progress milestone is 0.1.3:
+- https://github.com/dcslagel/las-util-django/milestone/6
 - Goals:
-  - Improve user interface particularly related to the 'Display Files' menu section.
-  - Initial iteration toward responsive multiple device formats display.
+  - Add initial parse and display functionality for the ~ASCII (data) section
 
 
 [FEATURE-REQUEST](#name)
