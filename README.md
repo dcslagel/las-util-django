@@ -32,7 +32,7 @@ https://www.cwls.org/products/
 - Upload a LAS file that includes the VERSION and optionally: WELL, CURVE,
   PARAMETER and optional OTHER sections.
 - Parse the VERSION, WELL, CURVE, PARAMETER and OTHER sections.
-- Store the parsed data in a SQLite database.
+- Store the parsed meta-data in a SQLite database.
 - Display a list of processed files with links to their details.
   Note: Currently LAS-Util renames the uploaded files to `las_file-[datetime]`
 - Display detailed data in a table format.
@@ -52,10 +52,10 @@ The default database is sqlite.
 
 | Component | Version |
 |-----------|---------|
-| coverage              | 5.1 |
-| Django                | 3.0.7 |
-| Django-Rest-Framework | 3.11.0 |
-| Pytz                  | 2020.1 |
+| coverage              | 5.5 |
+| Django                | 3.2 |
+| Django-Rest-Framework | 3.12.4 |
+| Pytz                  | 2021.1 |
 | Sqlite3               | 3.24.0 |
 
 Django and Django-Rest-Framework can be installed with
@@ -181,8 +181,8 @@ curl http://127.0.0.1:8000/api/detail/[filename]
 Example:     
 ```bash
 # first retrieve a filename from the pervious 'api/list' call.
-# example: las_file-2019-08-29-21-41-42
-curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42
+# example: las_file-2019-08-29-21-41-42.las
+curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42.las
 ```
 
 

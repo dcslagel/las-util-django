@@ -82,6 +82,10 @@ DATABASES = {
     }
 }
 
+# As of Django 3.2
+# Set global automatic primary key for tables that don't specify a primary key
+# https://docs.djangoproject.com/en/3.2/releases/3.2/#customizing-type-of-auto-created-primary-keys
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
