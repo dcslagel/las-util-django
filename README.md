@@ -53,7 +53,7 @@ The default database is sqlite.
 | Component | Version |
 |-----------|---------|
 | coverage              | 5.5 |
-| Django                | 3.2 |
+| Django                | 3.2.4 |
 | Django-Rest-Framework | 3.12.4 |
 | Pytz                  | 2021.1 |
 | Sqlite3               | 3.24.0 |
