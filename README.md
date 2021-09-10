@@ -56,6 +56,7 @@ The default database is sqlite.
 | Django                | 3.2.4 |
 | Django-Rest-Framework | 3.12.4 |
 | Pytz                  | 2021.1 |
+| Sqlparse              | 0.4.2  |
 | Sqlite3               | 3.24.0 |
 
 Django and Django-Rest-Framework can be installed with
