@@ -119,8 +119,8 @@ def api_upload(request):
     if request.method == 'POST':
         inform = UploadForm(request.POST, request.FILES)
         if inform.is_valid():
-            filename = request.FILES['filename']
-            newname = parse(filename)
+            filename = inform.cleaned_data['filename'].name
+            newname = parse(request.FILES['filename'])
             # Redirect to the data display
             message = "Saved LAS data from {} as {}".format(
                 filename,
