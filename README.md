@@ -43,22 +43,22 @@ https://www.cwls.org/products/
 - Responsive display on most devices.
 
 
-It has been tested with Django versions 3.2.13.
+It has been tested with Django version 4.0.6
 
 The default database is sqlite.
 
 [DEPENDENCIES](#name)
 ------------
 
-| Component             | Version  |
-|-----------------------|----------|
-| asgiref               | 3.4.1    |
-| coverage              | 5.5      |
-| Django                | 3.2.13   |
-| Django-Rest-Framework | 3.12.4   |
-| Pytz                  | 2021.1   |
-| Sqlparse              | 0.4.2    |
-| Sqlite3               | 3.24.0   |
+| Component             | Version |
+|-----------------------|---------|
+| asgiref               | 3.5.2   |
+| coverage              | 6.4.2   |
+| Django                | 4.0.6   |
+| Django-Rest-Framework | 3.13.1  |
+| Pytz                  | 2021.1  |
+| Sqlparse              | 0.4.2   |
+| Sqlite3               | 3.24.0  |
 
 Django and Django-Rest-Framework can be installed with
 ```
