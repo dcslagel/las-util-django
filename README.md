@@ -43,7 +43,7 @@ https://www.cwls.org/products/
 - Responsive display on most devices.
 
 
-It has been tested with Django version 4.0.6
+LAS-Util has been tested with Django version 4.1
 
 The default database is sqlite.
 
@@ -53,10 +53,10 @@ The default database is sqlite.
 | Component             | Version |
 |-----------------------|---------|
 | asgiref               | 3.5.2   |
-| coverage              | 6.4.2   |
-| Django                | 4.0.6   |
+| coverage              | 6.4.3   |
+| Django                | 4.1     |
 | Django-Rest-Framework | 3.13.1  |
-| Pytz                  | 2021.1  |
+| Pytz                  | 2022.1  |
 | Sqlparse              | 0.4.2   |
 | Sqlite3               | 3.24.0  |
 
@@ -190,8 +190,10 @@ curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42.las
 
 [PROJECT-ROADMAP](#name)
 ----------------
+NOTE: This project is not being actively developed.
 
-`LAS-Util-Django`'s project road-map is managed in github milestones at: 
+Here is the last roadmap before development stopped.    
+`LAS-Util-Django`'s project road-map is managed in github milestones at:
 - https://github.com/dcslagel/las-util-django/milestones
 
 The current work-in-progress milestone is 0.1.3:
