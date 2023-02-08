@@ -43,7 +43,7 @@ https://www.cwls.org/products/
 - Responsive display on most devices.
 
 
-LAS-Util has been tested with Django version 4.1.5
+LAS-Util has been tested with Django version 4.1.6
 
 The default database is sqlite.
 
@@ -53,8 +53,8 @@ The default database is sqlite.
 | Component             | Version  |
 |-----------------------|----------|
 | asgiref               | 3.6.0    |
-| coverage              | 7.0.5    |
-| Django                | 4.1.5    |
+| coverage              | 7.1.0    |
+| Django                | 4.1.6    |
 | Django-Rest-Framework | 3.14.1   |
 | Pytz                  | 2022.7.1 |
 | Sqlparse              | 0.4.3    |
@@ -148,6 +148,9 @@ Select the 'Display-Files' menu item. The uploaded file will have the most recen
 
 To upload a LAS doc use a post command:
 ```bash
+# Cd to the example_data directory
+cd las-util-django/src/las_util/example_data
+
 # Run a GET in order to retrieve the csrftoken in a cookie.
 curl -c cookie.txt http://127.0.0.1:8000/upload/ --silent -S --output /dev/null
 
@@ -174,7 +177,8 @@ To retrieve uploaded LAS docs:
 curl http://127.0.0.1:8000/api/list/
 ```
 
-To retrieve details of a specific LAS doc:
+To retrieve details of a specific LAS doc in JSON format:
+
 Syntax:    
 ```bash
 curl http://127.0.0.1:8000/api/detail/[filename]    
@@ -190,7 +194,7 @@ curl http://127.0.0.1:8000/api/detail/las_file-2019-08-29-21-41-42.las
 
 [PROJECT-ROADMAP](#name)
 ----------------
-NOTE: This project is not being actively developed.
+NOTE: This project is NOT being actively developed.
 
 Here is the last roadmap before development stopped.    
 `LAS-Util-Django`'s project road-map is managed in github milestones at:
