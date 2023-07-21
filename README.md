@@ -43,22 +43,23 @@ https://www.cwls.org/products/
 - Responsive display on most devices.
 
 
-LAS-Util has been tested with Django version 4.1.6
+LAS-Util has been tested with Django version 4.2.3
 
 The default database is sqlite.
 
 [DEPENDENCIES](#name)
 ------------
 
-| Component             | Version  |
-|-----------------------|----------|
-| asgiref               | 3.6.0    |
-| coverage              | 7.1.0    |
-| Django                | 4.1.6    |
-| Django-Rest-Framework | 3.14.1   |
-| Pytz                  | 2022.7.1 |
-| Sqlparse              | 0.4.3    |
-| Sqlite3               | 3.24.0   |
+| Component             | Version    |
+|-----------------------|------------|
+| asgiref               | 3.7.2      |
+| coverage              | 7.2.7      |
+| Django                | 4.2.3      |
+| Django-Rest-Framework | 3.14.0     |
+| Pytz                  | 2023.3     |
+| Sqlparse              | 0.4.4      |
+| Sqlite3               | 3.39.5     |
+| typing_extensions     | 4.7.1      |
 
 Django and Django-Rest-Framework can be installed with
 ```
